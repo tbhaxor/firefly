@@ -13,3 +13,42 @@ void Vectors::print() {
     }
     cout<<"\n";
 }
+
+void Vectors::zeroVector(int len) {
+    this->emptyVector();
+    while(len--) {
+        this->vec.push_back(0);
+    }
+}
+
+bool Vectors::emptyVector() {
+    if (this->vec.empty()) {
+        return false;
+    }
+    this->vec.clear();
+    return true;
+}
+
+Vectors Vectors::add(Vectors v) {
+    vector<float> tmp;
+    for(int i = 0; i < this->vec.size(); ++i) {
+        tmp.push_back(this->vec[i] + v.vec[i]);
+    }
+    return Vectors(tmp);
+}
+
+Vectors Vectors::subtract(Vectors v) {
+    vector<float> tmp;
+    for (int i = 0; i < this->vec.size(); ++i) {
+        tmp.push_back(this->vec[i] - v.vec[i]);
+    }
+    return Vectors(tmp);
+}
+
+Vectors Vectors::scalorMultiply(float number) {
+    vector<float> tmp;
+    for (int i = 0; i < this->vec.size(); ++i) {
+        tmp.push_back(this->vec[i] * number);
+    }
+    return Vectors(tmp);
+}
