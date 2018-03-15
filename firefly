@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+#include "./firefly.hpp"
+using namespace std;
+
+Vectors::Vectors(vector<float> vec) {
+    this->vec = vec;
+}
+
+void Vectors::print() {
+    for(int i = 0 ;i < vec.size(); ++i) {
+        cout<<vec[i]<<" ";
+    }
+    cout<<"\n";
+}
