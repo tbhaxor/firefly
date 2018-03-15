@@ -12,7 +12,9 @@ class Vectors {
     void zeroVector(int len);
     void print();
     bool emptyVector();
-    Vectors addWith(Vectors v);
+    Vectors add(Vectors v);
+    Vectors subtract(Vectors v);
+    Vectors scalorMultiply(float number);
 };
 
 #endif
