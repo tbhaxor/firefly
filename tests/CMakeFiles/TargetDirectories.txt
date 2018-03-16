@@ -1,0 +1,3 @@
+/home/terabyte/Programs/C++/firefly/tests/CMakeFiles/rebuild_cache.dir
+/home/terabyte/Programs/C++/firefly/tests/CMakeFiles/testrun.dir
+/home/terabyte/Programs/C++/firefly/tests/CMakeFiles/edit_cache.dir

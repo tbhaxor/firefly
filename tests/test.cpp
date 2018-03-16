@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "./firefly"
+#include <cassert>
+#include "../src/firefly"
 using namespace std;
 
 int main() {
@@ -10,6 +11,8 @@ int main() {
     Vectors vec2(var2);
     Vectors v;
     vec1.print();
+    vec2.print();
+    
     cout << endl;
     vec2.print();
     cout << endl;
