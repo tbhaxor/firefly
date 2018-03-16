@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/testrun.dir/test.cpp.o  -o testrun 
