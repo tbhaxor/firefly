@@ -20,6 +20,11 @@ class Vectors {
     float angleWith(Vectors v, bool degree);
     bool isParallelWith(Vectors v);
     bool isOrthogonalWith(Vectors v);
+    Vectors componentParallelTo(Vectors b);
+    Vectors componentOrthogonalTo(Vectors b);
+    Vectors crossProductWith(Vectors v);
+    float areaOfTriangleWith(Vectors v);
+    float areaOfParallelogramWith(Vectors v);
 };
 
 #endif
