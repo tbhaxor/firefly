@@ -56,11 +56,15 @@ Vectors Vectors::scalorMultiply(float number) {
 }
 
 float Vectors::magnitude() {
-    float sum = 0;
-    for(int i = 0; i < this->vec.size(); i++) {
-        sum += pow(this->vec[i], 2);
-    }
-    return sqrt(sum);
+    // this the method 1
+    float dot = this->dotProductWith(Vectors(this->vec));
+    return sqrt(dot);
+    // this the second way
+    // float sum = 0;
+    // for(int i = 0; i < this->vec.size(); i++) {
+    //     sum += pow(this->vec[i], 2);
+    // }
+    // return sqrt(sum);
 }
 
 Vectors Vectors::normalize() {
@@ -91,22 +95,36 @@ float Vectors::dotProductWith(Vectors v) {
 
 float Vectors::angleWith(Vectors v, bool degree = false) {
     // this is the first method
-    // float dot = this->dotProductWith(v);
-    // float mag1 = this->magnitude();
-    // float mag2 = v.magnitude();
-    // float radians = acos(dot / (mag1 * mag2));
-    // if(degree) {
-    //     return radians * (180.0 / M_PI);
-    // }
-    // return radians;
-
-    // this is the second way
-    Vectors v1 = this->normalize();
-    Vectors v2 = v.normalize();
-    float dot = v1.dotProductWith(v2);
-    float radians = acos(dot);
+    float dot = this->dotProductWith(v);
+    float mag1 = this->magnitude();
+    float mag2 = v.magnitude();
+    float radians = acos(dot / (mag1 * mag2));
     if(degree) {
         return radians * (180.0 / M_PI);
     }
     return radians;
+
+    // this is the second way, not working giving NaN
+    // Vectors v1 = this->normalize();
+    // Vectors v2 = v.normalize();
+    // float dot = v1.dotProductWith(v2);
+    // float radians = acos(dot);
+    // if(degree) {
+    //     return radians * (180.0 / M_PI);
+    // }
+    // return radians;
+}
+
+bool Vectors::isParallelWith(Vectors v) {
+    if(this->magnitude() == 0 or v.magnitude() == 0) {
+        return true;
+    }
+    return this->angleWith(v) == 180.0 or this->angleWith(v) == 0.0;
+}
+
+bool Vectors::isOrthogonalWith(Vectors v) {
+    if (this->magnitude() == 0 or v.magnitude() == 0) {
+        return true;
+    }
+    return this->angleWith(v, true) == 90;
 }

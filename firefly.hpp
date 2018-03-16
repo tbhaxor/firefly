@@ -19,6 +19,7 @@ class Vectors {
     float dotProductWith(Vectors v);
     float angleWith(Vectors v, bool degree);
     bool isParallelWith(Vectors v);
+    bool isOrthogonalWith(Vectors v);
 };
 
 #endif
