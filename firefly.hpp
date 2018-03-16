@@ -9,12 +9,15 @@ class Vectors {
   public:
     vector<float> vec;
     Vectors(vector<float> vector);
-    void zeroVector(int len);
+    Vectors();
     void print();
-    bool emptyVector();
     Vectors add(Vectors v);
     Vectors subtract(Vectors v);
     Vectors scalorMultiply(float number);
+    float magnitude();
+    Vectors normalize();
+    float dotProductWith(Vectors v);
+    float angleWith(Vectors v, bool degree);
 };
 
 #endif

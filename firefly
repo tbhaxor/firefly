@@ -1,35 +1,29 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <cmath>
 #include "./firefly.hpp"
 using namespace std;
+
+Vectors::Vectors() {}
 
 Vectors::Vectors(vector<float> vec) {
     this->vec = vec;
 }
 
 void Vectors::print() {
+    cout<<"[ ";
     for(int i = 0 ;i < vec.size(); ++i) {
-        cout<<vec[i]<<" ";
+        cout<<vec[i]<<", ";
     }
-    cout<<"\n";
-}
-
-void Vectors::zeroVector(int len) {
-    this->emptyVector();
-    while(len--) {
-        this->vec.push_back(0);
-    }
-}
-
-bool Vectors::emptyVector() {
-    if (this->vec.empty()) {
-        return false;
-    }
-    this->vec.clear();
-    return true;
+    cout<<"]";
 }
 
 Vectors Vectors::add(Vectors v) {
+    if (this->vec.size() != v.vec.size()) {
+        cout << "Exception: Vectors size don't match";
+        exit(1);
+    }
     vector<float> tmp;
     for(int i = 0; i < this->vec.size(); ++i) {
         tmp.push_back(this->vec[i] + v.vec[i]);
@@ -38,6 +32,10 @@ Vectors Vectors::add(Vectors v) {
 }
 
 Vectors Vectors::subtract(Vectors v) {
+    if (this->vec.size() != v.vec.size()) {
+        cout << "Exception: Vectors size don't match";
+        exit(1);
+    }
     vector<float> tmp;
     for (int i = 0; i < this->vec.size(); ++i) {
         tmp.push_back(this->vec[i] - v.vec[i]);
@@ -46,9 +44,69 @@ Vectors Vectors::subtract(Vectors v) {
 }
 
 Vectors Vectors::scalorMultiply(float number) {
+    if (number == 0.0f) {
+        cout << "Exception: Zero Divide Error";
+        exit(1);
+    }
     vector<float> tmp;
     for (int i = 0; i < this->vec.size(); ++i) {
         tmp.push_back(this->vec[i] * number);
     }
     return Vectors(tmp);
+}
+
+float Vectors::magnitude() {
+    float sum = 0;
+    for(int i = 0; i < this->vec.size(); i++) {
+        sum += pow(this->vec[i], 2);
+    }
+    return sqrt(sum);
+}
+
+Vectors Vectors::normalize() {
+    float mag = this->magnitude();
+    if (mag == 0.0f) {
+        cout<<"Exception: Zero Divide Error";
+        exit(1);
+    }
+    vector<float> n;
+    for(int i = 0; i < this->vec.size(); ++i) {
+        n.push_back(this->vec[i] / mag);
+    }
+
+    return Vectors(n);
+}
+
+float Vectors::dotProductWith(Vectors v) {
+    float sum = 0.0f;
+    if(this->vec.size() != v.vec.size()) {
+        cout<<"Exception: Vectors size don't match";
+        exit(1);
+    }
+    for(int i = 0; i < this->vec.size(); ++i) {
+        sum += this->vec[i] * v.vec[i];
+    }
+    return sum;
+}
+
+float Vectors::angleWith(Vectors v, bool degree = false) {
+    // this is the first method
+    // float dot = this->dotProductWith(v);
+    // float mag1 = this->magnitude();
+    // float mag2 = v.magnitude();
+    // float radians = acos(dot / (mag1 * mag2));
+    // if(degree) {
+    //     return radians * (180.0 / M_PI);
+    // }
+    // return radians;
+
+    // this is the second way
+    Vectors v1 = this->normalize();
+    Vectors v2 = v.normalize();
+    float dot = v1.dotProductWith(v2);
+    float radians = acos(dot);
+    if(degree) {
+        return radians * (180.0 / M_PI);
+    }
+    return radians;
 }
