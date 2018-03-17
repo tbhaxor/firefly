@@ -1,7 +1,7 @@
 <br>
 
 # Firefly [![Build Status](https://travis-ci.org/tbhaxor/firefly.svg?branch=master)](https://travis-ci.org/tbhaxor/firefly)
-
+> A standalone C++ Library for vectors calculations
 
 # Installation
 1. Download the repository or clone
