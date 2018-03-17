@@ -21,11 +21,28 @@ $ cd firefly
 # Features
 1. Addition of two vectors
 2. Subtraction of two vectors
-3.
+3. Scalor Multiplication of the floating number with Vector
+4. Find vector magnitude
+5. Find normalized form of the vector i.e unit vector
+6. Find dot product of two vectors
+7. Find cross product of two vectors
+8. Find area of parallelogram formed by two vectors
+9. Find area of triangle formed by two vectors
+10. Find angle between two vector in _degrees_ or _radians_
+11. Check whether the two vectors are parallel to each other or not
+12. Check whether the two vectors are orthogonal to each other or not
+13. Find a component of vector parallel to base vector while vector projection
+14. Find a component of vector orthogonal to base vector while vector projection
+
+# Overview of the methods
+| Class Method | Arguments | Return Type |              Description               |
+|--------------|-----------|-------------|----------------------------------------|
+| add          | Vectors   | Vectors     | This method takes a Vectors class type |
+
+
 
 # Example
-Here I will demonstrate you a function to print vector components
-
+Here I will demonstrate you a function to print vector components <br>
 **Note :** The following code will work if you have added both `firefly` and `firefly.hpp` to the **includes** directory of your compiler
 ```cpp
 #include <firefly>
@@ -44,4 +61,8 @@ int main() {
 ```
 [1, 2, 3, ]
 ```
- 
+# CONTRIBUTION
+To contribute open a Pull Request from new branch
+
+# Contact Me
+[![fb](https://img.shields.io/badge/FaceBook-gurkirat.py-blue.svg)](https://fb.com/gurkirat.py) [![gh](https://img.shields.io/badge/GitHub-tbhaxor-orange.svg)](https://github.com/tbhaxor) [![mail](https://img.shields.io/badge/Email%20Address-tbhaxor@gmail.com-green.svg)](mailto:tbhaxor@gmail.com) 
