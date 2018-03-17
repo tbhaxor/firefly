@@ -5,6 +5,7 @@ compiler:
 
 before_script:
   - cd tests
-  - g++ test.cpp -o testrun
+  - g++ test.cpp -o testrun -std=c++11
+  
 script:
   - ./testrun
