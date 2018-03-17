@@ -34,12 +34,14 @@ $ cd firefly
 13. Find a component of vector parallel to base vector while vector projection
 14. Find a component of vector orthogonal to base vector while vector projection
 
-# Overview of the methods
+<!--# Overview of the methods
+NOTE: `float` is an inbuilt datatype in c++ and Vectors is the class in `firefly`
+
 | Class Method | Arguments | Return Type |              Description               |
 |--------------|-----------|-------------|----------------------------------------|
 | add          | Vectors   | Vectors     | This method takes a Vectors class type |
 
-
+-->
 
 # Example
 Here I will demonstrate you a function to print vector components <br>
