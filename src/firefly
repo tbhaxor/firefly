@@ -167,3 +167,7 @@ float Vectors::areaOfParallelogramWith(Vectors v) {
 float Vectors::areaOfTriangleWith(Vectors v) {
     return this->areaOfParallelogramWith(v) / 2;
 }
+
+bool Vectors::isEqualTo(Vectors v) {
+    return this->vec == v.vec;
+}

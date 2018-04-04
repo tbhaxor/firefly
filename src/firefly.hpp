@@ -25,6 +25,7 @@ class Vectors {
     Vectors crossProductWith(Vectors v);
     float areaOfTriangleWith(Vectors v);
     float areaOfParallelogramWith(Vectors v);
+    bool isEqualTo(Vectors v);
 };
 
 #endif
