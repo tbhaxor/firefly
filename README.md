@@ -1,24 +1,44 @@
 <br>
 
 # Firefly [![Build Status](https://travis-ci.org/tbhaxor/firefly.svg?branch=master)](https://travis-ci.org/tbhaxor/firefly)
+
 > A standalone C++ Library for vectors calculations
 
 # Installation
+
 1. Download the repository or clone
-```
-git clone https://github.com/tbhaxor/firefly.git
-```
+   ```sh
+   git clone https://github.com/tbhaxor/firefly.git
+   ```
 2. Change the directory to firefly
-```
-$ cd firefly
-```
-3. Copy the file named with `firefly` and `firefly.hpp` to the **includes** directory of your compiler
+   ```sh
+   cd firefly
+   ```
+3. Make a build directory
+   ```sh
+   mkdir build
+   ```
+4. Configure the Project
+   ```sh
+   cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   ```
+5. Make the package
+   ```sh
+   make
+   ```
+6. Install the package
+   ```sh
+   sudo make install
+   ```
+7. Copy the file(s) from `INCLUDES` directory to `/usr/include`
 
 # Datatypes and classes
+
 1. vector of `float` type
 2. Vectors class of `firefly`
 
 # Features
+
 1. Addition of two vectors
 2. Subtraction of two vectors
 3. Scalor Multiplication of the floating number with Vector
@@ -44,8 +64,10 @@ NOTE: `float` is an inbuilt datatype in c++ and Vectors is the class in `firefly
 -->
 
 # Example
+
 Here I will demonstrate you a function to print vector components <br>
 **Note :** The following code will work if you have added both `firefly` and `firefly.hpp` to the **includes** directory of your compiler
+
 ```cpp
 #include <firefly>
 #include <iostream> // for io operations
@@ -54,17 +76,22 @@ using namespace std;
 
 int main() {
   vector<float> array = {1, 2, 3};
-  Vectors vec1(array);  // Vectors is the class in firefly 
+  Vectors vec1(array);  // Vectors is the class in firefly
   vec1.print();   // print is the method of class
   return 0;
 }
 ```
+
 **OUTPUT**
+
 ```
 [1, 2, 3, ]
 ```
+
 # CONTRIBUTION
+
 To contribute open a Pull Request from new branch
 
 # Contact Me
-[![fb](https://img.shields.io/badge/FaceBook-gurkirat.py-blue.svg)](https://fb.com/gurkirat.py) [![gh](https://img.shields.io/badge/GitHub-tbhaxor-orange.svg)](https://github.com/tbhaxor) [![mail](https://img.shields.io/badge/Email%20Address-tbhaxor@gmail.com-green.svg)](mailto:tbhaxor@gmail.com) 
+
+[![fb](https://img.shields.io/badge/FaceBook-gurkirat.py-blue.svg)](https://fb.com/gurkirat.py) [![gh](https://img.shields.io/badge/GitHub-tbhaxor-orange.svg)](https://github.com/tbhaxor) [![mail](https://img.shields.io/badge/Email%20Address-tbhaxor@gmail.com-green.svg)](mailto:tbhaxor@gmail.com)

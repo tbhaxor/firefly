@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include "../src/firefly"
+#include <firefly.hpp>
 using namespace std;
 
 int main()

@@ -1,11 +1,13 @@
 language: cpp
 
-compiler: 
- - gcc
+compiler:
+  - gcc
 
 before_script:
-  - cd tests
-  - g++ test.cpp -o testrun -std=c++11
-  
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+
 script:
-  - ./testrun
+  - ./tests/test
