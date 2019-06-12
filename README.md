@@ -60,7 +60,7 @@ Here I will demonstrate you a function to print vector components <br>
 **Note :** The following code will work if you have added both `firefly` and `firefly.hpp` to the **includes** directory of your compiler
 
 ```cpp
-#include <firefly>
+#include <firefly.hpp>
 #include <iostream> // for io operations
 #include <vector>  // for dynamic arrays :P
 using namespace std;
