@@ -10,4 +10,4 @@ before_script:
   - make
 
 script:
-  - ./tests/test
+  - ./tests/_test

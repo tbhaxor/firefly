@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.9)
 
 project(firefly)
 
+set (CMAKE_CXX_STANDARD 17)
 set(${PROJECT_NAME}_VERSION_MAJOR 2)
 set(${PROJECT_NAME}_VERSION_MINOR 0)
 set(${PROJECT_NAME}_VERSION_PATCH 0)
