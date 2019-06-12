@@ -4,7 +4,8 @@
 #include "../src/firefly"
 using namespace std;
 
-int main() {
+int main()
+{
     vector<float> var1 = {3.029, 1.879};
     vector<float> var2 = {0.825, 2.036};
     Vectors vec1(var1);
@@ -12,7 +13,7 @@ int main() {
     Vectors v;
     vec1.print();
     vec2.print();
-    
+
     cout << endl;
     vec2.print();
     cout << endl;
