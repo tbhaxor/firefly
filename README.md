@@ -54,15 +54,6 @@
 13. Find a component of vector parallel to base vector while vector projection
 14. Find a component of vector orthogonal to base vector while vector projection
 
-<!--# Overview of the methods
-NOTE: `float` is an inbuilt datatype in c++ and Vectors is the class in `firefly`
-
-| Class Method | Arguments | Return Type |              Description               |
-|--------------|-----------|-------------|----------------------------------------|
-| add          | Vectors   | Vectors     | This method takes a Vectors class type |
-
--->
-
 # Example
 
 Here I will demonstrate you a function to print vector components <br>
@@ -91,7 +82,3 @@ int main() {
 # CONTRIBUTION
 
 To contribute open a Pull Request from new branch
-
-# Contact Me
-
-[![fb](https://img.shields.io/badge/FaceBook-gurkirat.py-blue.svg)](https://fb.com/gurkirat.py) [![gh](https://img.shields.io/badge/GitHub-tbhaxor-orange.svg)](https://github.com/tbhaxor) [![mail](https://img.shields.io/badge/Email%20Address-tbhaxor@gmail.com-green.svg)](mailto:tbhaxor@gmail.com)
