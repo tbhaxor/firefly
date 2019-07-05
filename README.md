@@ -79,6 +79,8 @@ int main() {
 [1, 2, 3, ]
 ```
 
+**Note:** Learn how to integrate firefly with cmake from [this](https://github.com/tbhaxor/firefly/tree/master/examples) example
+
 # CONTRIBUTION
 
 To contribute open a Pull Request from new branch
