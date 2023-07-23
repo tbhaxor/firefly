@@ -1,0 +1,29 @@
+#---------------------------------------------------------------------------
+# Doxyfile for C++ documentation
+#---------------------------------------------------------------------------
+
+PROJECT_NAME           = "Firefly"
+PROJECT_BRIEF          = "Standalone library for vector and matrix calculations"
+PROJECT_NUMBER         = "2.0"
+
+
+FILE_PATTERNS          = *.cpp *.hpp
+INPUT                  = ./headers ./src
+RECURSIVE              = YES
+EXAMPLE_PATH           = ./examples
+OUTPUT_DIRECTORY       = ./docs
+
+SHOW_FILES             = YES
+
+ENABLED_SECTIONS       = mainpage
+
+EXTRACT_ALL            = YES
+
+HAVE_DOT               = NO
+
+UML_LOOK               = YES
+
+GENERATE_HTML          = YES
+
+HTML_OUTPUT            = ./
+

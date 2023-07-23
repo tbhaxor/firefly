@@ -1,0 +1,734 @@
+\doxysection{Firefly\+::Vector Class Reference}
+\hypertarget{classFirefly_1_1Vector}{}\label{classFirefly_1_1Vector}\index{Firefly::Vector@{Firefly::Vector}}
+
+
+Represents a mathematical vector in n-\/dimensional space.  
+
+
+
+
+{\ttfamily \#include $<$vector.\+hpp$>$}
+
+
+
+Collaboration diagram for Firefly\+::Vector\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{dd/d5d/classFirefly_1_1Vector__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFirefly_1_1Vector_ad3fd719be77f22f323d2fbc2b416b5b0}{Vector}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classFirefly_1_1Vector_a9d891d28b999dd8c714b5bb5a7524546}{Vector}} ()=delete
+\item 
+\mbox{\hyperlink{classFirefly_1_1Vector_a2b82096ed53c0c6fe1d5ec785857a59f}{\texorpdfstring{$\sim$}{\string~}\+Vector}} ()=default
+\item 
+\mbox{\hyperlink{classFirefly_1_1Vector_a976a83a550e77ea492860a454d6211ac}{Vector}} (std\+::size\+\_\+t \+\_\+size)
+\begin{DoxyCompactList}\small\item\em Constructs a vector of a specific size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFirefly_1_1Vector_a80f50f08df05019810e20b44e5a2759b}{Vector}} (\mbox{\hyperlink{namespaceFirefly_a94ef67810f9929b1bc65cbd86a31342e}{Vector\+Type}} const \&\+\_\+vec)
+\begin{DoxyCompactList}\small\item\em Constructs a vector from a given Vector\+Type (std\+::vector). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFirefly_1_1Vector_ae2972c768e49388623216a7742519827}{Vector}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec)
+\begin{DoxyCompactList}\small\item\em Copy constructor to create a new vector from an existing one. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFirefly_1_1Vector_ad6a52dd32633a7e2cc0638470c336f39}{View}} () const
+\begin{DoxyCompactList}\small\item\em Returns a string representation of the vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \mbox{\hyperlink{classFirefly_1_1Vector_aafcf2e6a2a012a41a1532560f79d0325}{At}} (std\+::size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em Retrieves the value at a specific index in the vector (const version). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \& \mbox{\hyperlink{classFirefly_1_1Vector_ad256e126e16073c0383cd39c1d48bd9d}{At}} (std\+::size\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em Retrieves a reference to the value at a specific index in the vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \mbox{\hyperlink{classFirefly_1_1Vector_a7bcbc09f6d3c0867d73685c21d9a2e28}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em Overloaded subscript operator to access the value at a specific index (const version). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \& \mbox{\hyperlink{classFirefly_1_1Vector_ae08c41e663255c40d45b2831f7ed6b17}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em Overloaded subscript operator to access the value at a specific index. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classFirefly_1_1Vector_ac99a32e3699a60ffc12d1d7673e1c3ba}{Size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the size (number of elements) of the vector. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classFirefly_1_1Vector_a0de7465369122c27ed8042d6a41b4b5a}{Rank}} () const
+\begin{DoxyCompactList}\small\item\em Returns the rank (dimensionality) of the vector. It is same as \doxylink{classFirefly_1_1Vector_ac99a32e3699a60ffc12d1d7673e1c3ba}{Size()} method. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a29d6bcdb921231252013512244ea5ff9}{Add}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Performs vector addition with another vector and returns the result as a new vector. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_ad6434f7839970ec09edd9a5b9fd01253}{Add}} (\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&\+\_\+scalar) const
+\begin{DoxyCompactList}\small\item\em Performs scalar addition with a real value and returns the result as a new vector. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a8b7617eab47edc3c36ea582842c35332}{operator+}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Overloaded operator to perform vector addition. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a7f7f0c88abd88d8e6fcff8c721e87363}{operator+}} (\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&\+\_\+scalar) const
+\begin{DoxyCompactList}\small\item\em Overloaded operator to perform scalar addition. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a9934daf558c4caa56f5f8607955e86e7}{operator++}} () const
+\begin{DoxyCompactList}\small\item\em Overloaded prefix increment operator to increment all elements of the vector by one. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_aedcb2ad43705440c473f1e73c02654df}{Scale}} (\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Performs vector scaling by a real value and returns the result as a new vector. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a0d7cb8a7f620cc27e064a99e64ec981f}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&\+\_\+scalar) const
+\begin{DoxyCompactList}\small\item\em Overloaded operator to perform vector scaling. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a0cf2e63094bf72c996e53aa9831e8e4c}{Subtract}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Performs vector subtraction with another vector and returns the result as a new vector. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a631fa5fef44c0941bdf534e26152ace1}{Subtract}} (\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&\+\_\+scalar) const
+\begin{DoxyCompactList}\small\item\em Performs scalar subtraction with a real value and returns the result as a new vector. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_abc1800eef8cd8c2a743564940412405a}{operator-\/}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Overloaded operator to perform vector subtraction. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a9caa2d41c1fc528d894c0239bb09cc27}{operator-\/}} (\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&\+\_\+scalar) const
+\begin{DoxyCompactList}\small\item\em Overloaded operator to perform scalar subtraction. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a4fa4235235de944eb35e5fe878b59f09}{operator-\/-\/}} () const
+\begin{DoxyCompactList}\small\item\em Overloaded prefix decrement operator to decrement all elements of the vector by one. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \mbox{\hyperlink{classFirefly_1_1Vector_acd893969cc1e4d0f3e3cda55dbace649}{Dot}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Calculates the dot product between this vector and another vector. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a7901d0f6bca04092071da0aec158affb}{Cross}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Calculates the cross product between this vector and another vector. Both vectors must have three dimensions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \mbox{\hyperlink{classFirefly_1_1Vector_a91561630255fe0fa7157d3a1b53cb77c}{Elem\+Sum}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the sum of all elements in the vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \mbox{\hyperlink{classFirefly_1_1Vector_af8ffbd82ae9988937590365cd385717d}{Magnitude}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the magnitude (Euclidean norm) of the vector. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ \mbox{\hyperlink{classFirefly_1_1Vector_a16f0cdaab79786ad4b4a901ce8f1d7f3}{Normalize}} () const
+\begin{DoxyCompactList}\small\item\em Returns a new vector that is the normalized version of this vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \mbox{\hyperlink{classFirefly_1_1Vector_a1f27be5b4d8f2d41ba4fcc3fcde91a7d}{Angle\+With}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Calculates the angle between this vector and another vector in radians. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFirefly_1_1Vector_a8a3ba8dc777081c231f00e2b979b75bd}{Is\+Zero}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the vector is a zero vector (all elements are zero). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFirefly_1_1Vector_a744f4a93c3c35a1d5bf86abda8b2405c}{Is\+Normalized}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the vector is a unit vector (normalized with a magnitude of 1). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFirefly_1_1Vector_aea4a8b7cd46343f3270c4994829fe3bc}{Is\+Parallel}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec)
+\begin{DoxyCompactList}\small\item\em Checks if this vector is parallel to another vector. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFirefly_1_1Vector_abb15777d3b6b9f87640245dac39144f0}{Is\+Orthogonal}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec)
+\begin{DoxyCompactList}\small\item\em Checks if this vector is orthogonal (perpendicular) to another vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \mbox{\hyperlink{classFirefly_1_1Vector_ae7a2b40012d900c6a8eaffd11023d22e}{Parallelogram\+Area}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Calculates the area of the parallelogram spanned by this vector and another vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \mbox{\hyperlink{classFirefly_1_1Vector_a2f6bd9be6aa613bb7b44419cad7717ff}{Triangle\+Area}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
+\begin{DoxyCompactList}\small\item\em Calculates the area of the triangle formed by this vector and another vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classFirefly_1_1Vector_a539f1696d6f351e845d078ade6b4d551}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec)
+\begin{DoxyCompactList}\small\item\em Overloaded stream insertion operator to print the vector to an output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a mathematical vector in n-\/dimensional space. 
+
+The \doxylink{classFirefly_1_1Vector}{Vector} class provides various operations on vectors, such as addition, subtraction, scaling, dot product, cross product, normalization, angle calculation, and more. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classFirefly_1_1Vector_ad3fd719be77f22f323d2fbc2b416b5b0}\label{classFirefly_1_1Vector_ad3fd719be77f22f323d2fbc2b416b5b0} 
+\index{Firefly::Vector@{Firefly::Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Firefly\+::\+Vector\+::\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classFirefly_1_1Vector_a9d891d28b999dd8c714b5bb5a7524546}\label{classFirefly_1_1Vector_a9d891d28b999dd8c714b5bb5a7524546} 
+\index{Firefly::Vector@{Firefly::Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Firefly\+::\+Vector\+::\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classFirefly_1_1Vector_a2b82096ed53c0c6fe1d5ec785857a59f}\label{classFirefly_1_1Vector_a2b82096ed53c0c6fe1d5ec785857a59f} 
+\index{Firefly::Vector@{Firefly::Vector}!````~Vector@{\texorpdfstring{$\sim$}{\string~}Vector}}
+\index{````~Vector@{\texorpdfstring{$\sim$}{\string~}Vector}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Vector()}{\string~Vector()}}
+{\footnotesize\ttfamily Firefly\+::\+Vector\+::\texorpdfstring{$\sim$}{\string~}\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classFirefly_1_1Vector_a976a83a550e77ea492860a454d6211ac}\label{classFirefly_1_1Vector_a976a83a550e77ea492860a454d6211ac} 
+\index{Firefly::Vector@{Firefly::Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Firefly\+::\+Vector\+::\+Vector (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Constructs a vector of a specific size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+size} & The size of the vector. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classFirefly_1_1Vector_a80f50f08df05019810e20b44e5a2759b}\label{classFirefly_1_1Vector_a80f50f08df05019810e20b44e5a2759b} 
+\index{Firefly::Vector@{Firefly::Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Firefly\+::\+Vector\+::\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceFirefly_a94ef67810f9929b1bc65cbd86a31342e}{Vector\+Type}} const \&}]{\+\_\+vec }\end{DoxyParamCaption})}
+
+
+
+Constructs a vector from a given Vector\+Type (std\+::vector). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+vec} & The Vector\+Type representing the vector. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classFirefly_1_1Vector_ae2972c768e49388623216a7742519827}\label{classFirefly_1_1Vector_ae2972c768e49388623216a7742519827} 
+\index{Firefly::Vector@{Firefly::Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Firefly\+::\+Vector\+::\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption})}
+
+
+
+Copy constructor to create a new vector from an existing one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+f} & The source vector to copy from. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classFirefly_1_1Vector_ad6434f7839970ec09edd9a5b9fd01253}\label{classFirefly_1_1Vector_ad6434f7839970ec09edd9a5b9fd01253} 
+\index{Firefly::Vector@{Firefly::Vector}!Add@{Add}}
+\index{Add@{Add}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&}]{\+\_\+scalar }\end{DoxyParamCaption}) const}
+
+
+
+Performs scalar addition with a real value and returns the result as a new vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+scalar} & The scalar value to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the result of the addition. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a29d6bcdb921231252013512244ea5ff9}\label{classFirefly_1_1Vector_a29d6bcdb921231252013512244ea5ff9} 
+\index{Firefly::Vector@{Firefly::Vector}!Add@{Add}}
+\index{Add@{Add}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Performs vector addition with another vector and returns the result as a new vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The vector to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the result of the addition. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a1f27be5b4d8f2d41ba4fcc3fcde91a7d}\label{classFirefly_1_1Vector_a1f27be5b4d8f2d41ba4fcc3fcde91a7d} 
+\index{Firefly::Vector@{Firefly::Vector}!AngleWith@{AngleWith}}
+\index{AngleWith@{AngleWith}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{AngleWith()}{AngleWith()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} Firefly\+::\+Vector\+::\+Angle\+With (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the angle between this vector and another vector in radians. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The other vector to calculate the angle with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle between the two vectors in radians. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_ad256e126e16073c0383cd39c1d48bd9d}\label{classFirefly_1_1Vector_ad256e126e16073c0383cd39c1d48bd9d} 
+\index{Firefly::Vector@{Firefly::Vector}!At@{At}}
+\index{At@{At}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{At()}{At()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \& Firefly\+::\+Vector\+::\+At (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption})}
+
+
+
+Retrieves a reference to the value at a specific index in the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The index of the element to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the value at the specified index. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_aafcf2e6a2a012a41a1532560f79d0325}\label{classFirefly_1_1Vector_aafcf2e6a2a012a41a1532560f79d0325} 
+\index{Firefly::Vector@{Firefly::Vector}!At@{At}}
+\index{At@{At}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{At()}{At()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} Firefly\+::\+Vector\+::\+At (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the value at a specific index in the vector (const version). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The index of the element to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value at the specified index. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a7901d0f6bca04092071da0aec158affb}\label{classFirefly_1_1Vector_a7901d0f6bca04092071da0aec158affb} 
+\index{Firefly::Vector@{Firefly::Vector}!Cross@{Cross}}
+\index{Cross@{Cross}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Cross()}{Cross()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::\+Cross (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the cross product between this vector and another vector. Both vectors must have three dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The other vector to calculate the cross product with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the result of the cross product. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_acd893969cc1e4d0f3e3cda55dbace649}\label{classFirefly_1_1Vector_acd893969cc1e4d0f3e3cda55dbace649} 
+\index{Firefly::Vector@{Firefly::Vector}!Dot@{Dot}}
+\index{Dot@{Dot}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Dot()}{Dot()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} Firefly\+::\+Vector\+::\+Dot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the dot product between this vector and another vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The other vector to calculate the dot product with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The dot product value. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a91561630255fe0fa7157d3a1b53cb77c}\label{classFirefly_1_1Vector_a91561630255fe0fa7157d3a1b53cb77c} 
+\index{Firefly::Vector@{Firefly::Vector}!ElemSum@{ElemSum}}
+\index{ElemSum@{ElemSum}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{ElemSum()}{ElemSum()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} Firefly\+::\+Vector\+::\+Elem\+Sum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the sum of all elements in the vector. 
+
+\begin{DoxyReturn}{Returns}
+The sum of all elements. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a744f4a93c3c35a1d5bf86abda8b2405c}\label{classFirefly_1_1Vector_a744f4a93c3c35a1d5bf86abda8b2405c} 
+\index{Firefly::Vector@{Firefly::Vector}!IsNormalized@{IsNormalized}}
+\index{IsNormalized@{IsNormalized}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{IsNormalized()}{IsNormalized()}}
+{\footnotesize\ttfamily bool Firefly\+::\+Vector\+::\+Is\+Normalized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the vector is a unit vector (normalized with a magnitude of 1). 
+
+\begin{DoxyReturn}{Returns}
+True if the vector is a unit vector, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_abb15777d3b6b9f87640245dac39144f0}\label{classFirefly_1_1Vector_abb15777d3b6b9f87640245dac39144f0} 
+\index{Firefly::Vector@{Firefly::Vector}!IsOrthogonal@{IsOrthogonal}}
+\index{IsOrthogonal@{IsOrthogonal}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{IsOrthogonal()}{IsOrthogonal()}}
+{\footnotesize\ttfamily bool Firefly\+::\+Vector\+::\+Is\+Orthogonal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption})}
+
+
+
+Checks if this vector is orthogonal (perpendicular) to another vector. 
+
+Two vectors are considered orthogonal if their dot product is 0, indicating a 90-\/degree angle between them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The other vector to check for orthogonality. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the vectors are orthogonal, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_aea4a8b7cd46343f3270c4994829fe3bc}\label{classFirefly_1_1Vector_aea4a8b7cd46343f3270c4994829fe3bc} 
+\index{Firefly::Vector@{Firefly::Vector}!IsParallel@{IsParallel}}
+\index{IsParallel@{IsParallel}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{IsParallel()}{IsParallel()}}
+{\footnotesize\ttfamily bool Firefly\+::\+Vector\+::\+Is\+Parallel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption})}
+
+
+
+Checks if this vector is parallel to another vector. 
+
+Two vectors are considered parallel if their direction is the same or opposite. To determine parallelism, the function calculates the angle between the vectors and checks if it is either 0 degrees or 180 degrees (pi radians).
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The other vector to check for parallelism. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the vectors are parallel, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a8a3ba8dc777081c231f00e2b979b75bd}\label{classFirefly_1_1Vector_a8a3ba8dc777081c231f00e2b979b75bd} 
+\index{Firefly::Vector@{Firefly::Vector}!IsZero@{IsZero}}
+\index{IsZero@{IsZero}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{IsZero()}{IsZero()}}
+{\footnotesize\ttfamily bool Firefly\+::\+Vector\+::\+Is\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the vector is a zero vector (all elements are zero). 
+
+\begin{DoxyReturn}{Returns}
+True if the vector is a zero vector, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_af8ffbd82ae9988937590365cd385717d}\label{classFirefly_1_1Vector_af8ffbd82ae9988937590365cd385717d} 
+\index{Firefly::Vector@{Firefly::Vector}!Magnitude@{Magnitude}}
+\index{Magnitude@{Magnitude}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Magnitude()}{Magnitude()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} Firefly\+::\+Vector\+::\+Magnitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the magnitude (Euclidean norm) of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The magnitude of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a16f0cdaab79786ad4b4a901ce8f1d7f3}\label{classFirefly_1_1Vector_a16f0cdaab79786ad4b4a901ce8f1d7f3} 
+\index{Firefly::Vector@{Firefly::Vector}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::\+Normalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a new vector that is the normalized version of this vector. 
+
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new normalized vector. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a0d7cb8a7f620cc27e064a99e64ec981f}\label{classFirefly_1_1Vector_a0d7cb8a7f620cc27e064a99e64ec981f} 
+\index{Firefly::Vector@{Firefly::Vector}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&}]{\+\_\+scalar }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded operator to perform vector scaling. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+scalar} & The scalar value to scale the vector by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the scaled result. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a7f7f0c88abd88d8e6fcff8c721e87363}\label{classFirefly_1_1Vector_a7f7f0c88abd88d8e6fcff8c721e87363} 
+\index{Firefly::Vector@{Firefly::Vector}!operator+@{operator+}}
+\index{operator+@{operator+}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&}]{\+\_\+scalar }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded operator to perform scalar addition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+scalar} & The scalar value to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the result of the addition. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a8b7617eab47edc3c36ea582842c35332}\label{classFirefly_1_1Vector_a8b7617eab47edc3c36ea582842c35332} 
+\index{Firefly::Vector@{Firefly::Vector}!operator+@{operator+}}
+\index{operator+@{operator+}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded operator to perform vector addition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The vector to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the result of the addition. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a9934daf558c4caa56f5f8607955e86e7}\label{classFirefly_1_1Vector_a9934daf558c4caa56f5f8607955e86e7} 
+\index{Firefly::Vector@{Firefly::Vector}!operator++@{operator++}}
+\index{operator++@{operator++}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded prefix increment operator to increment all elements of the vector by one. 
+
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector with incremented elements. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a9caa2d41c1fc528d894c0239bb09cc27}\label{classFirefly_1_1Vector_a9caa2d41c1fc528d894c0239bb09cc27} 
+\index{Firefly::Vector@{Firefly::Vector}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&}]{\+\_\+scalar }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded operator to perform scalar subtraction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+scalar} & The scalar value to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the result of the subtraction. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_abc1800eef8cd8c2a743564940412405a}\label{classFirefly_1_1Vector_abc1800eef8cd8c2a743564940412405a} 
+\index{Firefly::Vector@{Firefly::Vector}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded operator to perform vector subtraction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The vector to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the result of the subtraction. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a4fa4235235de944eb35e5fe878b59f09}\label{classFirefly_1_1Vector_a4fa4235235de944eb35e5fe878b59f09} 
+\index{Firefly::Vector@{Firefly::Vector}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::operator-\/-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded prefix decrement operator to decrement all elements of the vector by one. 
+
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector with decremented elements. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_ae08c41e663255c40d45b2831f7ed6b17}\label{classFirefly_1_1Vector_ae08c41e663255c40d45b2831f7ed6b17} 
+\index{Firefly::Vector@{Firefly::Vector}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \& Firefly\+::\+Vector\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption})}
+
+
+
+Overloaded subscript operator to access the value at a specific index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The index of the element to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the value at the specified index. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a7bcbc09f6d3c0867d73685c21d9a2e28}\label{classFirefly_1_1Vector_a7bcbc09f6d3c0867d73685c21d9a2e28} 
+\index{Firefly::Vector@{Firefly::Vector}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} Firefly\+::\+Vector\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded subscript operator to access the value at a specific index (const version). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The index of the element to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value at the specified index. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_ae7a2b40012d900c6a8eaffd11023d22e}\label{classFirefly_1_1Vector_ae7a2b40012d900c6a8eaffd11023d22e} 
+\index{Firefly::Vector@{Firefly::Vector}!ParallelogramArea@{ParallelogramArea}}
+\index{ParallelogramArea@{ParallelogramArea}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{ParallelogramArea()}{ParallelogramArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} Firefly\+::\+Vector\+::\+Parallelogram\+Area (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the area of the parallelogram spanned by this vector and another vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The other vector forming the parallelogram. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The area of the parallelogram. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a0de7465369122c27ed8042d6a41b4b5a}\label{classFirefly_1_1Vector_a0de7465369122c27ed8042d6a41b4b5a} 
+\index{Firefly::Vector@{Firefly::Vector}!Rank@{Rank}}
+\index{Rank@{Rank}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Rank()}{Rank()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Firefly\+::\+Vector\+::\+Rank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the rank (dimensionality) of the vector. It is same as \doxylink{classFirefly_1_1Vector_ac99a32e3699a60ffc12d1d7673e1c3ba}{Size()} method. 
+
+\begin{DoxyReturn}{Returns}
+The rank of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_aedcb2ad43705440c473f1e73c02654df}\label{classFirefly_1_1Vector_aedcb2ad43705440c473f1e73c02654df} 
+\index{Firefly::Vector@{Firefly::Vector}!Scale@{Scale}}
+\index{Scale@{Scale}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Performs vector scaling by a real value and returns the result as a new vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+scalar} & The scalar value to scale the vector by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the scaled result. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_ac99a32e3699a60ffc12d1d7673e1c3ba}\label{classFirefly_1_1Vector_ac99a32e3699a60ffc12d1d7673e1c3ba} 
+\index{Firefly::Vector@{Firefly::Vector}!Size@{Size}}
+\index{Size@{Size}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Size()}{Size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Firefly\+::\+Vector\+::\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the size (number of elements) of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The size of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a631fa5fef44c0941bdf534e26152ace1}\label{classFirefly_1_1Vector_a631fa5fef44c0941bdf534e26152ace1} 
+\index{Firefly::Vector@{Firefly::Vector}!Subtract@{Subtract}}
+\index{Subtract@{Subtract}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Subtract()}{Subtract()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::\+Subtract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&}]{\+\_\+scalar }\end{DoxyParamCaption}) const}
+
+
+
+Performs scalar subtraction with a real value and returns the result as a new vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+scalar} & The scalar value to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the result of the subtraction. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a0cf2e63094bf72c996e53aa9831e8e4c}\label{classFirefly_1_1Vector_a0cf2e63094bf72c996e53aa9831e8e4c} 
+\index{Firefly::Vector@{Firefly::Vector}!Subtract@{Subtract}}
+\index{Subtract@{Subtract}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{Subtract()}{Subtract()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} $>$ Firefly\+::\+Vector\+::\+Subtract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Performs vector subtraction with another vector and returns the result as a new vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The vector to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the new vector containing the result of the subtraction. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a2f6bd9be6aa613bb7b44419cad7717ff}\label{classFirefly_1_1Vector_a2f6bd9be6aa613bb7b44419cad7717ff} 
+\index{Firefly::Vector@{Firefly::Vector}!TriangleArea@{TriangleArea}}
+\index{TriangleArea@{TriangleArea}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{TriangleArea()}{TriangleArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} Firefly\+::\+Vector\+::\+Triangle\+Area (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the area of the triangle formed by this vector and another vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fvec} & The other vector forming the triangle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The area of the triangle. 
+\end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_ad6a52dd32633a7e2cc0638470c336f39}\label{classFirefly_1_1Vector_ad6a52dd32633a7e2cc0638470c336f39} 
+\index{Firefly::Vector@{Firefly::Vector}!View@{View}}
+\index{View@{View}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{View()}{View()}}
+{\footnotesize\ttfamily std\+::string Firefly\+::\+Vector\+::\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a string representation of the vector. 
+
+\begin{DoxyReturn}{Returns}
+A string representation of the vector. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classFirefly_1_1Vector_a539f1696d6f351e845d078ade6b4d551}\label{classFirefly_1_1Vector_a539f1696d6f351e845d078ade6b4d551} 
+\index{Firefly::Vector@{Firefly::Vector}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Firefly\+::\+Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overloaded stream insertion operator to print the vector to an output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream. \\
+\hline
+{\em \+\_\+fvec} & The vector to print. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output stream after printing the vector. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/firefly/\mbox{\hyperlink{vector_8hpp}{vector.\+hpp}}\item 
+src/vector/\mbox{\hyperlink{add_8cpp}{add.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{angle__with_8cpp}{angle\+\_\+with.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{area_8cpp}{area.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{cross_8cpp}{cross.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{dot_8cpp}{dot.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{elem__sum_8cpp}{elem\+\_\+sum.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{indexers_8cpp}{indexers.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{is__normalized_8cpp}{is\+\_\+normalized.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{is__orthogonal_8cpp}{is\+\_\+orthogonal.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{is__parallel_8cpp}{is\+\_\+parallel.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{is__zero_8cpp}{is\+\_\+zero.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{magnitude_8cpp}{magnitude.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{normalize_8cpp}{normalize.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{rank_8cpp}{rank.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{scale_8cpp}{scale.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{subtract_8cpp}{subtract.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{vector_8cpp}{vector.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{view_8cpp}{view.\+cpp}}\end{DoxyCompactItemize}

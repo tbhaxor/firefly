@@ -1,28 +1,18 @@
+#include <algorithm>
 #include <iostream>
-#include <firefly.hpp>
 #include <vector>
 
-using namespace std;
+#include "firefly/vector.hpp"
 
-int main()
-{
-    vector<float> v1 = {1,
-                        2,
-                        3,
-                        4};
-    vector<float> v2 = {2,
-                        4,
-                        6,
-                        8};
+int main() {
+  std::vector<Real> vec1{3, 3};
+  std::vector<Real> vec2{2, -2};
+  Firefly::Vector v1{vec1};
+  Firefly::Vector v2{vec2};
 
-    Vectors vector1(v1);
-    Vectors vector2(v2);
+  auto v3 = v2 * 4;
 
-    vector1.add(vector2).print();
-
-    cout << endl;
-
-    vector1.add(vector2).scalorMultiply(4.5).print();
-
-    return 0;
+  std::cout << v1 << std::endl;
+  std::cout << v2 << std::endl;
+  std::cout << *v3 << std::endl;
 }
