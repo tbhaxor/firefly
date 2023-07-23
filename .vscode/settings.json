@@ -10,4 +10,7 @@
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
         "editor.tabSize": 2
     },
+    "files.associations": {
+        "/Doxfile": "doxygen"
+    }
 }
