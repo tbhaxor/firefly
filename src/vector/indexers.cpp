@@ -6,8 +6,9 @@ namespace Firefly {
 
 Real Vector::At(std::size_t idx) const {
   if (idx >= m_vec->size()) {
-    throw std::out_of_range("Index out of range. Requested index: " + std::to_string(idx) +
-			    ", Vector size: " + std::to_string(m_vec->size()));
+    throw std::out_of_range(
+        "Index out of range. Requested index: " + std::to_string(idx) +
+        ", Vector size: " + std::to_string(m_vec->size()));
   }
 
   return m_vec->at(idx);

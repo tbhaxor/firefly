@@ -22,14 +22,19 @@ std::unique_ptr<Vector> Vector::Add(Vector const &_fvec) const {
 std::unique_ptr<Vector> Vector::Add(Real const &_scalar) const {
   std::unique_ptr<Vector> sum = std::make_unique<Vector>(*this);
 
-  std::transform(sum->m_vec->cbegin(), sum->m_vec->cend(), sum->m_vec->begin(), [&](Real const &_el) { return _el + _scalar; });
+  std::transform(sum->m_vec->cbegin(), sum->m_vec->cend(), sum->m_vec->begin(),
+                 [&](Real const &_el) { return _el + _scalar; });
 
   return sum;
 }
 
-std::unique_ptr<Vector> Vector::operator+(Real const &_scalar) const { return this->Add(_scalar); }
+std::unique_ptr<Vector> Vector::operator+(Real const &_scalar) const {
+  return this->Add(_scalar);
+}
 
-std::unique_ptr<Vector> Vector::operator+(Vector const &_fvec) const { return this->Add(_fvec); }
+std::unique_ptr<Vector> Vector::operator+(Vector const &_fvec) const {
+  return this->Add(_fvec);
+}
 
 std::unique_ptr<Vector> Vector::operator++() const { return this->Add(1); }
 } // namespace Firefly
