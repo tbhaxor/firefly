@@ -31,4 +31,4 @@ if (${Firefly_ENABLE_EXAMPLES})
 endif()
 
 install(TARGETS ${PROJECT_NAME}_static ${PROJECT_NAME}_shared)
-install(DIRECTORY headers/ DESTINATION includes)
+install(DIRECTORY headers/ DESTINATION include)
