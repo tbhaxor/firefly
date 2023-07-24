@@ -1,16 +1,16 @@
 #include "firefly/vector.hpp"
 
 namespace Firefly {
-std::unique_ptr<Vector> Vector::Cross(Vector const &_fvec) const {
-  if (m_vec->size() != 3 || _fvec.m_vec->size() != 3) {
+Vector &Vector::Cross(Vector const &_fvec) const {
+  if (m_vec.size() != 3 || _fvec.m_vec.size() != 3) {
     throw std::invalid_argument("Both vectors must be three-dimensional.");
   }
 
-  std::unique_ptr<Vector> cross = std::make_unique<Vector>(m_vec->size());
+  Vector cross{m_vec.size()};
 
-  cross->At(0) = m_vec->at(1) * _fvec.At(2) - m_vec->at(2) * _fvec.At(1);
-  cross->At(1) = m_vec->at(2) * _fvec.At(0) - m_vec->at(0) * _fvec.At(2);
-  cross->At(2) = m_vec->at(0) * _fvec.At(1) - m_vec->at(1) * _fvec.At(0);
+  cross[0] = m_vec[1] * _fvec[2] - m_vec[2] * _fvec[1];
+  cross[1] = m_vec[2] * _fvec[0] - m_vec[0] * _fvec[2];
+  cross[2] = m_vec[0] * _fvec[1] - m_vec[1] * _fvec[0];
 
   return cross;
 }

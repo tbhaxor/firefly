@@ -10,9 +10,9 @@ int main() {
   Firefly::Vector v1{vec1};
   Firefly::Vector v2{vec2};
 
-  auto v3 = v2 * 4;
+  auto v3 = v1 + v2;
 
   std::cout << v1 << std::endl;
   std::cout << v2 << std::endl;
-  std::cout << *v3 << std::endl;
+  std::cout << v3 << std::endl;
 }
