@@ -44,15 +44,16 @@ int main() {
    Firefly::Vector v2(vec2);
 
    // add two firefly vectors and 
-   // returns unique_ptr of Firefly::Vector type
-   std::unique_ptr<Firefly::Vector> vec_addition = v1 + v2;
+   // returns Firefly::Vector type
+   auto vec_addition = v1 + v2;
    
    // print out v1 on 
    std::cout << v1 << std::endl; // [1, 2, 3, 4]
    std::cout << v2 << std::endl; // [2, 3, 4, 1]
-   std::cout << *vec_addition << std::endl; // [3, 5, 7, 5]
+   std::cout << vec_addition << std::endl; // [3, 5, 7, 5]
 }
 ```
+
 ### Build directly from compiler
 
 ```console
