@@ -60,6 +60,8 @@ std\+::size\+\_\+t \mbox{\hyperlink{classFirefly_1_1Vector_a0de7465369122c27ed80
 \begin{DoxyCompactList}\small\item\em Overloaded operator to perform scalar subtraction. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} \mbox{\hyperlink{classFirefly_1_1Vector_a7370d444867f2e89663a4805bb07ebd3}{operator-\/-\/}} () const
 \begin{DoxyCompactList}\small\item\em Overloaded prefix decrement operator to decrement all elements of the vector by one. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} \mbox{\hyperlink{classFirefly_1_1Vector_a60e87f862a016c37d11e1de8b9218aab}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Overload unary negation operator to negate the original vector, giving anti-\/parallel vector. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} \mbox{\hyperlink{classFirefly_1_1Vector_acd893969cc1e4d0f3e3cda55dbace649}{Dot}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
 \begin{DoxyCompactList}\small\item\em Calculates the dot product between this vector and another vector. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} \mbox{\hyperlink{classFirefly_1_1Vector_a48167e21a08c591f054cd7c68756931b}{Cross}} (\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&\+\_\+fvec) const
@@ -455,10 +457,30 @@ Overloaded prefix increment operator to increment all elements of the vector by 
 \begin{DoxyReturn}{Returns}
 A unique pointer to the new vector with incremented elements. 
 \end{DoxyReturn}
+\Hypertarget{classFirefly_1_1Vector_a60e87f862a016c37d11e1de8b9218aab}\label{classFirefly_1_1Vector_a60e87f862a016c37d11e1de8b9218aab} 
+\index{Firefly::Vector@{Firefly::Vector}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Firefly::Vector@{Firefly::Vector}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} Firefly\+::\+Vector\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Overload unary negation operator to negate the original vector, giving anti-\/parallel vector. 
+
+It negates all components of the vector, effectively reversing its direction while keeping its magnitude unchanged. The resulting vector points in the opposite direction of the original vector.
+
+For a 2D vector v = (x, y), the negation -\/v = (-\/x, -\/y). For a 3D vector v = (x, y, z), the negation -\/v = (-\/x, -\/y, -\/z).
+
+\begin{DoxyNote}{Note}
+The original \doxylink{classFirefly_1_1Vector}{Vector} object remains unchanged after using this operator.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{classFirefly_1_1Vector}{Vector} object with all components negated. 
+\end{DoxyReturn}
 \Hypertarget{classFirefly_1_1Vector_a99b6b362d4f49a3d1e99d85cc6752c7d}\label{classFirefly_1_1Vector_a99b6b362d4f49a3d1e99d85cc6752c7d} 
 \index{Firefly::Vector@{Firefly::Vector}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!Firefly::Vector@{Firefly::Vector}}
-\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} Firefly\+::\+Vector\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}} const \&}]{\+\_\+scalar }\end{DoxyParamCaption}) const}
 
 
@@ -476,7 +498,7 @@ A unique pointer to the new vector containing the result of the subtraction.
 \Hypertarget{classFirefly_1_1Vector_a3ad2e4c70961d61802f281b440c487e1}\label{classFirefly_1_1Vector_a3ad2e4c70961d61802f281b440c487e1} 
 \index{Firefly::Vector@{Firefly::Vector}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!Firefly::Vector@{Firefly::Vector}}
-\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} Firefly\+::\+Vector\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}} const \&}]{\+\_\+fvec }\end{DoxyParamCaption}) const}
 
 
@@ -699,6 +721,7 @@ The documentation for this class was generated from the following files\+:\begin
 headers/firefly/\mbox{\hyperlink{vector_8hpp}{vector.\+hpp}}\item 
 src/vector/\mbox{\hyperlink{add_8cpp}{add.\+cpp}}\item 
 src/vector/\mbox{\hyperlink{angle__with_8cpp}{angle\+\_\+with.\+cpp}}\item 
+src/vector/\mbox{\hyperlink{anti__parallel_8cpp}{anti\+\_\+parallel.\+cpp}}\item 
 src/vector/\mbox{\hyperlink{area_8cpp}{area.\+cpp}}\item 
 src/vector/\mbox{\hyperlink{cross_8cpp}{cross.\+cpp}}\item 
 src/vector/\mbox{\hyperlink{dot_8cpp}{dot.\+cpp}}\item 
