@@ -24,9 +24,9 @@ class Vector {
   using VectorType = std::vector<Real>;
 
   VectorType m_vec;
+  Vector(Vector &&);
 
 public:
-  Vector(Vector &&) = delete;
   Vector() = delete;
 
   ~Vector() = default;
@@ -110,7 +110,7 @@ public:
    * @return A unique pointer to the new vector containing the result of the
    * addition.
    */
-  [[nodiscard]] Vector &Add(Vector const &_fvec) const;
+  [[nodiscard]] Vector Add(Vector const &_fvec) const;
   /**
    * @brief Performs scalar addition with a real value and returns the result as
    * a new vector.
@@ -118,27 +118,27 @@ public:
    * @return A unique pointer to the new vector containing the result of the
    * addition.
    */
-  [[nodiscard]] Vector &Add(Real const &_scalar) const;
+  [[nodiscard]] Vector Add(Real const &_scalar) const;
   /**
    * @brief Overloaded operator to perform vector addition.
    * @param _fvec The vector to add.
    * @return A unique pointer to the new vector containing the result of the
    * addition.
    */
-  [[nodiscard]] Vector &operator+(Vector const &_fvec) const;
+  [[nodiscard]] Vector operator+(Vector const &_fvec) const;
   /**
    * @brief Overloaded operator to perform scalar addition.
    * @param _scalar The scalar value to add.
    * @return A unique pointer to the new vector containing the result of the
    * addition.
    */
-  [[nodiscard]] Vector &operator+(Real const &_scalar) const;
+  [[nodiscard]] Vector operator+(Real const &_scalar) const;
   /**
    * @brief Overloaded prefix increment operator to increment all elements of
    * the vector by one.
    * @return A unique pointer to the new vector with incremented elements.
    */
-  [[nodiscard]] Vector &operator++() const;
+  [[nodiscard]] Vector operator++() const;
 
   /**
    * @brief Performs vector scaling by a real value and returns the result as a
@@ -146,14 +146,14 @@ public:
    * @param _scalar The scalar value to scale the vector by.
    * @return A unique pointer to the new vector containing the scaled result.
    */
-  [[nodiscard]] Vector &Scale(Real const &_fvec) const;
+  [[nodiscard]] Vector Scale(Real const &_fvec) const;
 
   /**
    * @brief Overloaded operator to perform vector scaling.
    * @param _scalar The scalar value to scale the vector by.
    * @return A unique pointer to the new vector containing the scaled result.
    */
-  [[nodiscard]] Vector &operator*(Real const &_scalar) const;
+  [[nodiscard]] Vector operator*(Real const &_scalar) const;
 
   /**
    * @brief Performs vector subtraction with another vector and returns the
@@ -162,7 +162,7 @@ public:
    * @return A unique pointer to the new vector containing the result of the
    * subtraction.
    */
-  [[nodiscard]] Vector &Subtract(Vector const &_fvec) const;
+  [[nodiscard]] Vector Subtract(Vector const &_fvec) const;
   /**
    * @brief Performs scalar subtraction with a real value and returns the result
    * as a new vector.
@@ -170,27 +170,27 @@ public:
    * @return A unique pointer to the new vector containing the result of the
    * subtraction.
    */
-  [[nodiscard]] Vector &Subtract(Real const &_scalar) const;
+  [[nodiscard]] Vector Subtract(Real const &_scalar) const;
   /**
    * @brief Overloaded operator to perform vector subtraction.
    * @param _fvec The vector to subtract.
    * @return A unique pointer to the new vector containing the result of the
    * subtraction.
    */
-  [[nodiscard]] Vector &operator-(Vector const &_fvec) const;
+  [[nodiscard]] Vector operator-(Vector const &_fvec) const;
   /**
    * @brief Overloaded operator to perform scalar subtraction.
    * @param _scalar The scalar value to subtract.
    * @return A unique pointer to the new vector containing the result of the
    * subtraction.
    */
-  [[nodiscard]] Vector &operator-(Real const &_scalar) const;
+  [[nodiscard]] Vector operator-(Real const &_scalar) const;
   /**
    * @brief Overloaded prefix decrement operator to decrement all elements of
    * the vector by one.
    * @return A unique pointer to the new vector with decremented elements.
    */
-  [[nodiscard]] Vector &operator--() const;
+  [[nodiscard]] Vector operator--() const;
 
   /**
    * @brief Calculates the dot product between this vector and another vector.
@@ -206,7 +206,7 @@ public:
    * @return A unique pointer to the new vector containing the result of the
    * cross product.
    */
-  [[nodiscard]] Vector &Cross(Vector const &_fvec) const;
+  [[nodiscard]] Vector Cross(Vector const &_fvec) const;
 
   /**
    * @brief Calculates the sum of all elements in the vector.
@@ -224,7 +224,7 @@ public:
    * @brief Returns a new vector that is the normalized version of this vector.
    * @return A unique pointer to the new normalized vector.
    */
-  [[nodiscard]] Vector &Normalize() const;
+  [[nodiscard]] Vector Normalize() const;
 
   /**
    * @brief Calculates the angle between this vector and another vector in
