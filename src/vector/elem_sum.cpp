@@ -6,6 +6,6 @@
 namespace Firefly {
 
 Real Vector::ElemSum() const {
-  return std::reduce(m_vec.cbegin(), m_vec.cend(), 0x0, std::plus<Real>());
+  return std::accumulate(m_vec.cbegin(), m_vec.cend(), 0x0);
 }
 } // namespace Firefly

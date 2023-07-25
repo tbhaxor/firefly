@@ -11,7 +11,7 @@ Real Vector::At(std::size_t idx) const {
         ", Vector size: " + std::to_string(m_vec.size()));
   }
 
-  return m_vec.at(idx);
+  return m_vec[idx];
 }
 
 Real &Vector::At(std::size_t idx) {
@@ -19,7 +19,7 @@ Real &Vector::At(std::size_t idx) {
     m_vec.resize(idx + 1);
   }
 
-  return m_vec.at(idx);
+  return m_vec[idx];
 }
 
 Real Vector::operator[](std::size_t idx) const { return this->At(idx); }

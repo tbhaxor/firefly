@@ -10,9 +10,9 @@ Vector Vector::Add(Vector const &_fvec) const {
     throw std::length_error("Rank of two vectors must be equal.");
   }
 
-  Vector sum{_fvec};
+  Vector sum{m_vec.size()};
 
-  std::transform(m_vec.cbegin(), m_vec.cend(), sum.m_vec.begin(),
+  std::transform(m_vec.cbegin(), m_vec.cend(), _fvec.m_vec.begin(),
                  sum.m_vec.begin(),
                  [](Real const &a, Real const &b) { return a + b; });
 
@@ -20,9 +20,9 @@ Vector Vector::Add(Vector const &_fvec) const {
 }
 
 Vector Vector::Add(Real const &_scalar) const {
-  Vector sum{m_vec};
+  Vector sum{m_vec.size()};
 
-  std::transform(m_vec.cbegin(), sum.m_vec.cend(), sum.m_vec.begin(),
+  std::transform(m_vec.cbegin(), m_vec.cend(), sum.m_vec.begin(),
                  [&](Real const &_el) { return _el + _scalar; });
 
   return sum;
