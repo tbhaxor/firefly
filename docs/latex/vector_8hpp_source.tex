@@ -5,30 +5,30 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstddef>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <ostream>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifdef\ DOUBLE\_PRECISION}}
-\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ =\ double;}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00011\ \textcolor{keyword}{using\ }\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ =\ float;}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceFirefly}{Firefly}}\ \{}
-\DoxyCodeLine{00015\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceFirefly_a94ef67810f9929b1bc65cbd86a31342e}{VectorType}}\ =\ std::vector<Real>;}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \{}
-\DoxyCodeLine{00026\ \ \ std::shared\_ptr<VectorType>\ m\_vec;}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classFirefly_1_1Vector_ad3fd719be77f22f323d2fbc2b416b5b0}{Vector}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifdef\ DOUBLE\_PRECISION}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{using\ }\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ =\ double;}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ }\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ =\ float;}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceFirefly}{Firefly}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \{}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{using\ }VectorType\ =\ std::vector<Real>;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ VectorType\ m\_vec;}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classFirefly_1_1Vector_a9d891d28b999dd8c714b5bb5a7524546}{Vector}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \&\&);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classFirefly_1_1Vector_a9d891d28b999dd8c714b5bb5a7524546}{Vector}}()\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{classFirefly_1_1Vector_a2b82096ed53c0c6fe1d5ec785857a59f}{\string~Vector}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00033\ }
 \DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classFirefly_1_1Vector_a9d891d28b999dd8c714b5bb5a7524546}{Vector}}(std::size\_t\ \_size);}
-\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classFirefly_1_1Vector_a9d891d28b999dd8c714b5bb5a7524546}{Vector}}(\mbox{\hyperlink{namespaceFirefly_a94ef67810f9929b1bc65cbd86a31342e}{VectorType}}\ \textcolor{keyword}{const}\ \&\_vec);}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classFirefly_1_1Vector_a9d891d28b999dd8c714b5bb5a7524546}{Vector}}(VectorType\ \textcolor{keyword}{const}\ \&\_vec);}
 \DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{classFirefly_1_1Vector_a9d891d28b999dd8c714b5bb5a7524546}{Vector}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec);}
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00054\ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classFirefly_1_1Vector_ad6a52dd32633a7e2cc0638470c336f39}{View}}()\ \textcolor{keyword}{const};}
@@ -43,31 +43,31 @@
 \DoxyCodeLine{00098\ }
 \DoxyCodeLine{00104\ \ \ [[nodiscard]]\ std::size\_t\ \mbox{\hyperlink{classFirefly_1_1Vector_a0de7465369122c27ed8042d6a41b4b5a}{Rank}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00105\ }
-\DoxyCodeLine{00113\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a29d6bcdb921231252013512244ea5ff9}{Add}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00121\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a29d6bcdb921231252013512244ea5ff9}{Add}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00128\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a8b7617eab47edc3c36ea582842c35332}{operator+}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00135\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a8b7617eab47edc3c36ea582842c35332}{operator+}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00141\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a9934daf558c4caa56f5f8607955e86e7}{operator++}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00113\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_abf5885fda7e9013618a5061632d72da7}{Add}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_abf5885fda7e9013618a5061632d72da7}{Add}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00128\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a13fa6f3dc432ddc9830bd37b390e48f9}{operator+}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00135\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a13fa6f3dc432ddc9830bd37b390e48f9}{operator+}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00141\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a6a8ef90bf1d57fee3a063baaf8d48aba}{operator++}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00142\ }
-\DoxyCodeLine{00149\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_aedcb2ad43705440c473f1e73c02654df}{Scale}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00149\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a9efd834520ba633f91743d02c168b78d}{Scale}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00150\ }
-\DoxyCodeLine{00156\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a0d7cb8a7f620cc27e064a99e64ec981f}{operator*}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00156\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_ae56a7baeeccd1bb14243b63d3ff1f587}{operator*}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00157\ }
-\DoxyCodeLine{00165\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a0cf2e63094bf72c996e53aa9831e8e4c}{Subtract}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00173\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a0cf2e63094bf72c996e53aa9831e8e4c}{Subtract}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00180\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_abc1800eef8cd8c2a743564940412405a}{operator-\/}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00187\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_abc1800eef8cd8c2a743564940412405a}{operator-\/}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00193\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a4fa4235235de944eb35e5fe878b59f09}{operator-\/-\/}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00165\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_acb2756364e6a63c9cde2de40a8223e2e}{Subtract}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00173\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_acb2756364e6a63c9cde2de40a8223e2e}{Subtract}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00180\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a3ad2e4c70961d61802f281b440c487e1}{operator-\/}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00187\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a3ad2e4c70961d61802f281b440c487e1}{operator-\/}}(\mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \textcolor{keyword}{const}\ \&\_scalar)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00193\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a7370d444867f2e89663a4805bb07ebd3}{operator-\/-\/}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00194\ }
 \DoxyCodeLine{00200\ \ \ [[nodiscard]]\ \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \mbox{\hyperlink{classFirefly_1_1Vector_acd893969cc1e4d0f3e3cda55dbace649}{Dot}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00201\ }
-\DoxyCodeLine{00209\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a7901d0f6bca04092071da0aec158affb}{Cross}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00209\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a48167e21a08c591f054cd7c68756931b}{Cross}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00210\ }
 \DoxyCodeLine{00215\ \ \ [[nodiscard]]\ \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a91561630255fe0fa7157d3a1b53cb77c}{ElemSum}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00216\ }
 \DoxyCodeLine{00221\ \ \ [[nodiscard]]\ \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \mbox{\hyperlink{classFirefly_1_1Vector_af8ffbd82ae9988937590365cd385717d}{Magnitude}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00222\ }
-\DoxyCodeLine{00227\ \ \ [[nodiscard]]\ std::unique\_ptr<Vector>\ \mbox{\hyperlink{classFirefly_1_1Vector_a16f0cdaab79786ad4b4a901ce8f1d7f3}{Normalize}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00227\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \mbox{\hyperlink{classFirefly_1_1Vector_ab11d85d55f38c6cd388e7c1bbeff1e59}{Normalize}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00228\ }
 \DoxyCodeLine{00235\ \ \ [[nodiscard]]\ \mbox{\hyperlink{vector_8hpp_a6baabe9790f3842ab73110ab342c5c5e}{Real}}\ \mbox{\hyperlink{classFirefly_1_1Vector_a1f27be5b4d8f2d41ba4fcc3fcde91a7d}{AngleWith}}(\mbox{\hyperlink{classFirefly_1_1Vector}{Vector}}\ \textcolor{keyword}{const}\ \&\_fvec)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00236\ }
