@@ -5,7 +5,7 @@ namespace Firefly {
 std::string Vector::View() const {
   std::stringstream ss;
   ss << "[";
-  for (auto &el : *m_vec) {
+  for (auto &el : m_vec) {
     ss << el << ", ";
   }
   ss << "\b\b]";

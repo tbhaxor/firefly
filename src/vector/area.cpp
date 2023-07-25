@@ -2,7 +2,7 @@
 
 namespace Firefly {
 Real Vector::ParallelogramArea(Vector const &_fvec) const {
-  return this->Cross(_fvec)->Magnitude();
+  return this->Cross(_fvec).Magnitude();
 }
 
 Real Vector::TriangleArea(Vector const &_fvec) const {

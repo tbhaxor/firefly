@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "firefly/vector.hpp"
 
 namespace Firefly {
@@ -6,12 +8,12 @@ Real Vector::Dot(Vector const &_fvec) const {
     throw std::length_error("Size of two vectors must be equal.");
   }
 
-  std::unique_ptr<Vector> dot = std::make_unique<Vector>(*_fvec.m_vec);
+  Vector dot{m_vec.size()};
 
-  for (std::size_t i = 0; i < m_vec->size(); i++) {
-    dot->At(i) *= m_vec->at(i);
-  }
+  std::transform(m_vec.cbegin(), m_vec.cend(), _fvec.m_vec.cbegin(),
+                 dot.m_vec.begin(),
+                 [](Real const &a, Real const &b) { return a * b; });
 
-  return dot->ElemSum();
+  return dot.ElemSum();
 }
 } // namespace Firefly

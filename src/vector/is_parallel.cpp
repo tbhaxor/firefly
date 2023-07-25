@@ -8,7 +8,9 @@ bool Vector::IsParallel(const Vector &_fvec) {
     return true;
   }
 
-  auto angle_radians = this->AngleWith(_fvec);
-  return angle_radians == 0 || angle_radians == M_PI;
+  // convert angle from radians to degrees
+  auto angle_degrees = this->AngleWith(_fvec) * (180 / M_PI);
+
+  return std::round(angle_degrees) == 90 || std::round(angle_degrees) == 180;
 }
 } // namespace Firefly
