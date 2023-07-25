@@ -193,6 +193,24 @@ public:
   [[nodiscard]] Vector operator--() const;
 
   /**
+   * @brief Overload unary negation operator to negate the original vector,
+   * giving anti-parallel vector.
+   *
+   * It negates all components of the vector, effectively reversing its
+   * direction while keeping its magnitude unchanged. The resulting vector
+   * points in the opposite direction of the original vector.
+   *
+   * For a 2D vector v = (x, y), the negation -v = (-x, -y).
+   * For a 3D vector v = (x, y, z), the negation -v = (-x, -y, -z).
+   *
+   * @note The original Vector object remains unchanged after using this
+   * operator.
+   *
+   * @return A new Vector object with all components negated.
+   */
+  [[nodiscard]] Vector operator-() const;
+
+  /**
    * @brief Calculates the dot product between this vector and another vector.
    * @param _fvec The other vector to calculate the dot product with.
    * @return The dot product value.
