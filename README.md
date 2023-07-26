@@ -1,5 +1,9 @@
 # Firefly
 
+<p align="center">
+   <a href="https://www.producthunt.com/posts/libfirefly?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-libfirefly" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=406416&theme=light" alt="LibFirefly - A&#0032;standalone&#0032;C&#0043;&#0043;&#0032;Library&#0032;for&#0032;vectors&#0032;calculations | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+</p>
+
 This is a standalone C++ vector calculation library. It performs addition, subtraction, scalar multiplication, magnitude, normalisation, dot product, cross product, area of parallelogram, area of triangle, and angle between two vectors. The library supports both float and double precision and cuurrently it is only available on the CPU systems.
 
 The library was designed to help people learn C++ and its concepts. It's a simple implementation, but it's a good place to start if you want to learn more about linear algebra and C++.
