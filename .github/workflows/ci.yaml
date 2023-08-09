@@ -49,8 +49,7 @@ jobs:
         name: Checkout repository
       - run: brew install gcc@${{ matrix.compiler-version }}
       - run: |
-          ls /usr/bin/gcc*
-          ls /usr/bin/g++*
+          which $(gcc-${{matrix.compiler-version}})
 
   # test_posix_clang:
   #   strategy:
