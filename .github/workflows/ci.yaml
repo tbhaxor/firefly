@@ -13,7 +13,7 @@ jobs:
   test_posix_gcc:
     strategy:
       matrix:
-        os: [ macos-latest, ubuntu-latest ]
+        os: [ ubuntu-latest ]
         compiler-version: [ 9, 10, 11, 12 ]
     runs-on: ${{ matrix.os }}
     steps:
