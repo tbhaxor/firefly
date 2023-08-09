@@ -19,14 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checkout repository
-      - uses: egor-tensin/setup-gcc@v1
-        name: Provision GCC
-        with:
-          version: ${{ matrix.compiler-version }}
-          platform: x64
-      - run: |
-          ls /usr/bin/gcc*
-          ls /usr/bin/g++*
+      - run: ls /usr/bin/gcc*
+      - run: ls /usr/bin/g++*
 
   # test_posix_clang:
   #   strategy:
