@@ -252,6 +252,9 @@ public:
    */
   [[nodiscard]] Real AngleWith(Vector const &_fvec) const;
 
+  [[nodiscard]] bool IsSame(Vector const &_fvec) const;
+  [[nodiscard]] bool operator==(Vector const &_fvec) const;
+
   /**
    * @brief Checks if the vector is a zero vector (all elements are zero).
    * @return True if the vector is a zero vector, otherwise false.
