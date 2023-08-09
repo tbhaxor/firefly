@@ -13,15 +13,29 @@ jobs:
   test_posix_gcc:
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ macos-latest, ubuntu-latest ]
         compiler-version: [ 9, 10, 11, 12 ]
     runs-on: ${{ matrix.os }}
+    env:
+      CC: gcc-${{ matrix.compiler-version }}
+      CXX: g++-${{ matrix.compiler-version }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout repository
-      - run: ls /usr/bin/gcc*
-      - run: ls /usr/bin/g++*
-      - run: /usr/bin/gcc --version
+      - run: 
+          ls /usr/bin/gcc*
+          ls /usr/bin/g++*
+      # - run: |
+      #     cmake -Bbuild \
+      #       -DFirefly_ENABLE_TESTS=ON \
+      #       -DFirefly_ENABLE_DOUBLE_PRECISION=ON
+      #   name: Configure build directory
+      # - run: |
+      #     cmake --build build -j `nproc`
+      #   name: Build targets
+      # - run: |
+      #     cmake --build build --target tests/test
+      #   name: Run unit tests
 
   # test_posix_clang:
   #   strategy:
