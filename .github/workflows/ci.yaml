@@ -10,12 +10,11 @@ on:
       - main
 
 jobs:
-  test_posix_gcc:
+  test_linux_gcc:
     strategy:
       matrix:
-        os: [ macos-latest, ubuntu-latest ]
         compiler-version: [ 9, 10, 11, 12 ]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     env:
       CC: gcc-${{ matrix.compiler-version }}
       CXX: g++-${{ matrix.compiler-version }}
@@ -36,6 +35,22 @@ jobs:
       # - run: |
       #     cmake --build build --target tests/test
       #   name: Run unit tests
+
+  test_macos_gcc:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        compiler-version: [ 9, 10, 11, 12 ]
+    env:
+      CC: gcc-${{ matrix.compiler-version }}
+      CXX: g++-${{ matrix.compiler-version }}
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout repository
+      - run: brew install gcc@${{ matrix.compiler-version }}
+      - run: |
+          ls /usr/bin/gcc*
+          ls /usr/bin/g++*
 
   # test_posix_clang:
   #   strategy:
