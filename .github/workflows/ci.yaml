@@ -1,0 +1,36 @@
+name: Unit Testing
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+  push:
+    branches:
+      - main
+
+jobs:
+  test_posix_gcc:
+    strategy:
+      matrix:
+        os: [ macos-latest, ubuntu-latest ]
+        compiler-version: [ 9, 10, 11, 12 ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout repository
+      - uses: egor-tensin/setup-gcc@v1
+        name: Provision GCC
+        with:
+          version: ${{ matrix.compiler-version }}
+          platform: x64
+      - run: |
+          ls /usr/bin/gcc*
+          ls /usr/bin/g++*
+
+  # test_posix_clang:
+  #   strategy:
+  #     matrix:
+  #       os: [ macos-latest, ubuntu-latest ]
+  #       compiler-version: [ 11, 12, 13, 14, 15 ]
+  #   runs-on: ${{ matrix.os }}
