@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checkout repository
-      - run: 
+      - run: |
           ls /usr/bin/gcc*
           ls /usr/bin/g++*
       # - run: |
