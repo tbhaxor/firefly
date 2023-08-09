@@ -21,6 +21,7 @@ jobs:
         name: Checkout repository
       - run: ls /usr/bin/gcc*
       - run: ls /usr/bin/g++*
+      - run: /usr/bin/gcc --version
 
   # test_posix_clang:
   #   strategy:
