@@ -3,8 +3,8 @@
 #---------------------------------------------------------------------------
 
 PROJECT_NAME           = "Firefly"
-PROJECT_BRIEF          = "Standalone library for vector and matrix calculations"
-PROJECT_NUMBER         = "2.0"
+PROJECT_BRIEF          = "Standalone library for vector calculations"
+PROJECT_NUMBER         = "2.1"
 
 
 FILE_PATTERNS          = *.cpp *.hpp
@@ -25,5 +25,5 @@ UML_LOOK               = YES
 
 GENERATE_HTML          = YES
 
-HTML_OUTPUT            = ./
+HTML_OUTPUT            = html
 
