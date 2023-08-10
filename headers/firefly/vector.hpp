@@ -97,13 +97,6 @@ public:
   [[nodiscard]] std::size_t Size() const;
 
   /**
-   * @brief Returns the rank (dimensionality) of the vector. It is same as
-   * Size() method.
-   * @return The rank of the vector.
-   */
-  [[nodiscard]] std::size_t Rank() const;
-
-  /**
    * @brief Performs vector addition with another vector and returns the result
    * as a new vector.
    * @param _fvec The vector to add.
@@ -133,12 +126,6 @@ public:
    * addition.
    */
   [[nodiscard]] Vector operator+(Real const &_scalar) const;
-  /**
-   * @brief Overloaded prefix increment operator to increment all elements of
-   * the vector by one.
-   * @return A unique pointer to the new vector with incremented elements.
-   */
-  [[nodiscard]] Vector operator++() const;
 
   /**
    * @brief Performs vector scaling by a real value and returns the result as a
@@ -185,12 +172,6 @@ public:
    * subtraction.
    */
   [[nodiscard]] Vector operator-(Real const &_scalar) const;
-  /**
-   * @brief Overloaded prefix decrement operator to decrement all elements of
-   * the vector by one.
-   * @return A unique pointer to the new vector with decremented elements.
-   */
-  [[nodiscard]] Vector operator--() const;
 
   /**
    * @brief Overload unary negation operator to negate the original vector,
@@ -251,6 +232,45 @@ public:
    * @return The angle between the two vectors in radians.
    */
   [[nodiscard]] Real AngleWith(Vector const &_fvec) const;
+
+  /**
+   * @brief Checks if this vector is the same as another vector.
+   *
+   * This function compares the current vector with another vector to determine
+   * if they are the same. The comparison is based on the values of the vector's
+   * components.
+   *
+   * @param _fvec Another vector to compare with.
+   * @return Returns true if the vectors are the same, otherwise false.
+   */
+  [[nodiscard]] bool IsSame(Vector const &_fvec) const;
+
+  /**
+   * @brief Compares two vectors for equality.
+   *
+   * This operator compares the current vector with another vector to check for
+   * equality. It internally calls the IsSame function to perform the
+   * comparison. The comparison is based on the values of the vector's
+   * components.
+   *
+   * @param _fvec Another vector to compare with.
+   * @return Returns true if the vectors are equal, otherwise false.
+   * @see IsSame
+   */
+  [[nodiscard]] bool operator==(Vector const &_fvec) const;
+
+  /**
+   * @brief Checks if the vector is sparse.
+   *
+   * A vector is considered sparse if the count of zero elements is greater than
+   * or equal to the count of non-zero elements. This function calculates the
+   * counts of zero and non-zero elements in the vector and compares them to
+   * determine sparsity.
+   *
+   * @return Returns true if the vector is sparse, i.e., the count of zero
+   * elements is greater than or equal to the count of non-zero elements.
+   */
+  [[nodiscard]] bool IsSparse() const;
 
   /**
    * @brief Checks if the vector is a zero vector (all elements are zero).

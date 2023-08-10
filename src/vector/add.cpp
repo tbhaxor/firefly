@@ -33,6 +33,4 @@ Vector Vector::operator+(Real const &_scalar) const {
 }
 
 Vector Vector::operator+(Vector const &_fvec) const { return this->Add(_fvec); }
-
-Vector Vector::operator++() const { return this->Add(1); }
 } // namespace Firefly

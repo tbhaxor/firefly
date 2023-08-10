@@ -16,6 +16,4 @@ Vector Vector::operator-(Vector const &_fvec) const {
 Vector Vector::operator-(Real const &_scalar) const {
   return this->Subtract(_scalar);
 }
-
-Vector Vector::operator--() const { return this->Subtract(1); }
 } // namespace Firefly
