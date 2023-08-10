@@ -36,7 +36,7 @@ jobs:
           version: ${{ matrix.version }}
       - run: |
           cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
-          cmake --build build -- -j `nproc`
+          cmake --build build 
         name: Configure and build binaries
       - run: |
           ctest --test-dir build/tests/ --verbose
@@ -61,7 +61,7 @@ jobs:
           version: ${{ matrix.version }}
       - run: |
           cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
-          cmake --build build -- -j `nproc`
+          cmake --build build 
         name: Configure and build binaries
       - run: |
           ctest --test-dir build/tests/ --verbose
@@ -85,7 +85,7 @@ jobs:
         name: Install GCC
       - run: |
           cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
-          cmake --build build -- -j `nproc`
+          cmake --build build 
         name: Configure and build binaries
       - run: |
           ctest --test-dir build/tests/ --verbose
@@ -109,7 +109,7 @@ jobs:
         name: Install LLVM
       - run: |
           cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
-          cmake --build build -- -j `nproc`
+          cmake --build build 
         name: Configure and build binaries
       - run: |
           ctest --test-dir build/tests/ --verbose
