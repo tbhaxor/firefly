@@ -47,7 +47,7 @@ jobs:
     needs: [ ensure_tests ]
     strategy:
       matrix:
-        version: [10, 11, 12, 13, 14, 15, 16]
+        version: [11, 12, 13, 14, 15, 16]
     runs-on: ubuntu-latest
     env:
       CC: clang-${{ matrix.version }}
