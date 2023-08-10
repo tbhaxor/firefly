@@ -62,29 +62,28 @@ public:
   friend std::ostream &operator<<(std::ostream &os, Vector const &_fvec);
 
   /**
-   * @brief Retrieves the value at a specific index in the vector (const
-   * version).
+   * @brief Retrieves the value at a specific index in the vector (getter).
    * @param idx The index of the element to retrieve.
    * @return The value at the specified index.
    */
   [[nodiscard]] Real At(std::size_t idx) const;
   /**
    * @brief Retrieves a reference to the value at a specific index in the
-   * vector.
+   * vector (setter).
    * @param idx The index of the element to retrieve.
    * @return A reference to the value at the specified index.
    */
   [[nodiscard]] Real &At(std::size_t idx);
   /**
    * @brief Overloaded subscript operator to access the value at a specific
-   * index (const version).
+   * index (getter).
    * @param idx The index of the element to retrieve.
    * @return The value at the specified index.
    */
   [[nodiscard]] Real operator[](std::size_t idx) const;
   /**
    * @brief Overloaded subscript operator to access the value at a specific
-   * index.
+   * index (setter).
    * @param idx The index of the element to retrieve.
    * @return A reference to the value at the specified index.
    */
@@ -97,79 +96,70 @@ public:
   [[nodiscard]] std::size_t Size() const;
 
   /**
-   * @brief Performs vector addition with another vector and returns the result
-   * as a new vector.
+   * @brief Performs element-wise vector addition with another vector.
    * @param _fvec The vector to add.
-   * @return A unique pointer to the new vector containing the result of the
-   * addition.
+   * @return New vector containing the result of the addition.
    */
   [[nodiscard]] Vector Add(Vector const &_fvec) const;
   /**
-   * @brief Performs scalar addition with a real value and returns the result as
-   * a new vector.
+   * @brief Performs scalar addition (using broadcasting) with a real value.
    * @param _scalar The scalar value to add.
-   * @return A unique pointer to the new vector containing the result of the
-   * addition.
+   * @return New vector containing the result of the addition.
    */
   [[nodiscard]] Vector Add(Real const &_scalar) const;
   /**
-   * @brief Overloaded operator to perform vector addition.
+   * @brief Overloaded operator to perform vector addition. Internally calls
+   * Add().
    * @param _fvec The vector to add.
-   * @return A unique pointer to the new vector containing the result of the
-   * addition.
+   * @return New vector containing the result of the addition.
    */
   [[nodiscard]] Vector operator+(Vector const &_fvec) const;
   /**
-   * @brief Overloaded operator to perform scalar addition.
+   * @brief Overloaded operator to perform scalar addition. Internally calls
+   * Add().
    * @param _scalar The scalar value to add.
-   * @return A unique pointer to the new vector containing the result of the
-   * addition.
+   * @return New vector containing the result of the addition.
    */
   [[nodiscard]] Vector operator+(Real const &_scalar) const;
 
   /**
-   * @brief Performs vector scaling by a real value and returns the result as a
-   * new vector.
+   * @brief Performs element-wise scaling of vector by a real value.
    * @param _scalar The scalar value to scale the vector by.
-   * @return A unique pointer to the new vector containing the scaled result.
+   * @return New vector containing the scaled result.
    */
   [[nodiscard]] Vector Scale(Real const &_fvec) const;
 
   /**
    * @brief Overloaded operator to perform vector scaling.
    * @param _scalar The scalar value to scale the vector by.
-   * @return A unique pointer to the new vector containing the scaled result.
+   * @return New vector containing the scaled result.
    */
   [[nodiscard]] Vector operator*(Real const &_scalar) const;
 
   /**
-   * @brief Performs vector subtraction with another vector and returns the
-   * result as a new vector.
+   * @brief Performs element-wise vector subtraction with another vector.
    * @param _fvec The vector to subtract.
-   * @return A unique pointer to the new vector containing the result of the
-   * subtraction.
+   * @return New vector containing the result of the subtraction.
    */
   [[nodiscard]] Vector Subtract(Vector const &_fvec) const;
   /**
-   * @brief Performs scalar subtraction with a real value and returns the result
-   * as a new vector.
+   * @brief Performs scalar subtraction (using broadcasting) with a real value.
    * @param _scalar The scalar value to subtract.
-   * @return A unique pointer to the new vector containing the result of the
-   * subtraction.
+   * @return New vector containing the result of the subtraction.
    */
   [[nodiscard]] Vector Subtract(Real const &_scalar) const;
   /**
-   * @brief Overloaded operator to perform vector subtraction.
+   * @brief Overloaded operator to perform vector subtraction. Internally it
+   * will use Subtract().
    * @param _fvec The vector to subtract.
-   * @return A unique pointer to the new vector containing the result of the
-   * subtraction.
+   * @return New vector containing the result of the subtraction.
    */
   [[nodiscard]] Vector operator-(Vector const &_fvec) const;
   /**
-   * @brief Overloaded operator to perform scalar subtraction.
+   * @brief Overloaded operator to perform scalar subtraction. Internally it
+   * will use Subtract().
    * @param _scalar The scalar value to subtract.
-   * @return A unique pointer to the new vector containing the result of the
-   * subtraction.
+   * @return New vector containing the result of the subtraction.
    */
   [[nodiscard]] Vector operator-(Real const &_scalar) const;
 
@@ -199,11 +189,13 @@ public:
   [[nodiscard]] Real Dot(Vector const &_fvec) const;
 
   /**
-   * @brief Calculates the cross product between this vector and another vector.
-   * Both vectors must have three dimensions.
+   * @brief Calculates the cross product using Levi-Civita symbol between this
+   * vector and another vector. Both vectors must have three dimensions.
+   *
    * @param _fvec The other vector to calculate the cross product with.
-   * @return A unique pointer to the new vector containing the result of the
+   * @return New vector containing the result of the
    * cross product.
+   * @see https://en.wikipedia.org/wiki/Levi-Civita_symbol#Vector_cross_product
    */
   [[nodiscard]] Vector Cross(Vector const &_fvec) const;
 
@@ -220,8 +212,9 @@ public:
   [[nodiscard]] Real Magnitude() const;
 
   /**
-   * @brief Returns a new vector that is the normalized version of this vector.
-   * @return A unique pointer to the new normalized vector.
+   * @brief Scales the vector 1/|v| and returns a new vector that is the
+   * normalized version (|v| = 1) of this vector.
+   * @return A new normalized vector.
    */
   [[nodiscard]] Vector Normalize() const;
 
@@ -262,10 +255,10 @@ public:
   /**
    * @brief Checks if the vector is sparse.
    *
-   * A vector is considered sparse if the count of zero elements is greater than
-   * or equal to the count of non-zero elements. This function calculates the
-   * counts of zero and non-zero elements in the vector and compares them to
-   * determine sparsity.
+   * A vector is considered sparse if the count of zero elements is greater that
+   * the count of non-zero elements. This function calculates the counts of zero
+   * and non-zero elements in the vector and compares them to determine
+   * sparsity.
    *
    * @return Returns true if the vector is sparse, i.e., the count of zero
    * elements is greater than or equal to the count of non-zero elements.
@@ -276,26 +269,26 @@ public:
    * @brief Checks if the vector is a zero vector (all elements are zero).
    * @return True if the vector is a zero vector, otherwise false.
    */
-  [[nodiscard]] bool IsZero();
+  [[nodiscard]] bool IsZero() const;
 
   /**
    * @brief Checks if the vector is a unit vector (normalized with a magnitude
    * of 1).
    * @return True if the vector is a unit vector, otherwise false.
    */
-  [[nodiscard]] bool IsNormalized();
+  [[nodiscard]] bool IsNormalized() const;
   /**
    * @brief Checks if this vector is parallel to another vector.
    *
-   * Two vectors are considered parallel if their direction is the
-   * same or opposite. To determine parallelism, the function calculates the
-   * angle between the vectors and checks if it is either 0 degrees or 180
-   * degrees (pi radians).
+   * Two vectors are parallel if their direction ratios are proportional.
    *
-   * @param _fvec The other vector to check for parallelism.
-   * @return True if the vectors are parallel, otherwise false.
+   * @param _fvec Another vector to compare with.
+   * @return Returns true if the vectors are parallel, otherwise false.
+   * @note If one of the vectors is the zero vector, they are considered
+   * parallel.
+   * @see https://www.cuemath.com/geometry/direction-ratio/
    */
-  [[nodiscard]] bool IsParallel(Vector const &_fvec);
+  [[nodiscard]] bool IsParallel(Vector const &_fvec) const;
   /**
    * @brief Checks if this vector is orthogonal (perpendicular) to another
    * vector.
@@ -306,13 +299,14 @@ public:
    * @param _fvec The other vector to check for orthogonality.
    * @return True if the vectors are orthogonal, otherwise false.
    */
-  [[nodiscard]] bool IsOrthogonal(Vector const &_fvec);
+  [[nodiscard]] bool IsOrthogonal(Vector const &_fvec) const;
 
   /**
    * @brief Calculates the area of the parallelogram spanned by this vector and
    * another vector.
    * @param _fvec The other vector forming the parallelogram.
    * @return The area of the parallelogram.
+   * @see https://www.cuemath.com/measurement/area-of-parallelogram/
    */
   [[nodiscard]] Real ParallelogramArea(Vector const &_fvec) const;
   /**
