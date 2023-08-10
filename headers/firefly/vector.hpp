@@ -24,7 +24,7 @@ class Vector {
   using VectorType = std::vector<Real>;
 
   VectorType m_vec;
-  Vector(Vector &&);
+  Vector(Vector &&) noexcept;
 
 public:
   Vector() = delete;
@@ -35,12 +35,12 @@ public:
    * @brief Constructs a vector of a specific size.
    * @param _size The size of the vector.
    */
-  Vector(std::size_t _size);
+  explicit Vector(std::size_t _size);
   /**
    * @brief Constructs a vector from a given VectorType (std::vector).
    * @param _vec The VectorType representing the vector.
    */
-  Vector(VectorType const &_vec);
+  explicit Vector(VectorType const &_vec);
   /**
    * @brief Copy constructor to create a new vector from an existing one.
    * @param _f The source vector to copy from.
