@@ -1,26 +1,41 @@
-name: Build docs
+name: Deploy docs
 
 on:
   push:
-    branches: [master]
+    branches: ["master"]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build_docs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install doxygen
+        run: |
           sudo apt install doxygen graphviz -y
-        name: Install doxygen
-      - uses: actions/checkout@v3
-        name: Checkout repository
-      - run: |
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Build documentation
+        run: |
           doxygen
           touch docs/html/.nojekyll
-        name: Build documentation
-      - uses: JamesIves/github-pages-deploy-action@v4
-        name: Deploy to github-pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          folder: docs/html
+          path: 'docs/html'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

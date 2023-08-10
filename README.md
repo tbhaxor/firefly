@@ -8,6 +8,11 @@ This is a standalone C++ vector calculation library. It performs addition, subtr
 
 The library was designed to help people learn C++ and its concepts. It's a simple implementation, but it's a good place to start if you want to learn more about linear algebra and C++.
 
+## Supported Platforms and Compilers
+
+**Linux** GCC v9+ or Clang v11+ <br>
+**MacOS** GCC v10+ or Clang v12+ <br>
+
 ## Build and Install
 
 > **Note** Ensure CMake 3.10+ and either Make or Ninja build systems are installed before following the steps.
