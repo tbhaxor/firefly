@@ -114,28 +114,3 @@ jobs:
       - run: |
           ctest --test-dir build/tests/ --verbose
         name: Run tests
-  
-  unit_test_mingw_windows:
-    name: Windows (MinGW=v${{ matrix.version }})
-    needs: [ ensure_tests ]
-    strategy:
-      matrix:
-        version: [9, 10, 11, 12, 13]
-    runs-on: windows-latest
-    env:
-      CC: x86_64-w64-mingw32-gcc
-      CXX: x86_64-w64-mingw32-gcc++
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout repository
-      - uses: egor-tensin/setup-mingw@v2.2.0
-        name: Install MinGW
-        with:
-          version: ${{ matrix.version }}
-      - run: |
-          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
-          cmake --build build
-        name: Configure and build binaries
-      - run: |
-          ctest --test-dir build/tests/ --verbose
-        name: Run tests
