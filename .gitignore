@@ -69,4 +69,7 @@ _deps
 ### Clangd
 .cache
 
+### Doxygen
+docs
+
 # End of https://www.gitignore.io/api/c++,cmake,visualstudiocode
