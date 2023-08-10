@@ -67,3 +67,51 @@ jobs:
           ctest --test-dir build/tests/ --verbose
         name: Run tests
   
+  unit_test_gcc_macos:
+    name: MacOS (GCC=v${{ matrix.version }})
+    needs: [ ensure_tests ]
+    strategy:
+      matrix:
+        version: [9, 10, 11, 12, 13]
+    runs-on: macos-latest
+    env:
+      CC: clang-${{ matrix.version }}
+      CXX: clang++-${{ matrix.version }}
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout repository
+      - run: |
+          brew install gcc@${{ matrix.version }}
+        name: Install GCC
+      - run: |
+          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
+          cmake --build build -- -j `nproc`
+        name: Configure and build binaries
+      - run: |
+          ctest --test-dir build/tests/ --verbose
+        name: Run tests
+  
+  unit_test_llvm_macos:
+    name: MacOS (LLVM=v${{ matrix.version }})
+    needs: [ ensure_tests ]
+    strategy:
+      matrix:
+        version: [12, 13, 14, 15, 16]
+    runs-on: macos-latest
+    env:
+      CC: clang-${{ matrix.version }}
+      CXX: clang++-${{ matrix.version }}
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout repository
+      - run: |
+          brew install llvm@${{ matrix.version }}
+        name: Install LLVM
+      - run: |
+          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
+          cmake --build build -- -j `nproc`
+        name: Configure and build binaries
+      - run: |
+          ctest --test-dir build/tests/ --verbose
+        name: Run tests
+  
