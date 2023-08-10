@@ -99,8 +99,8 @@ jobs:
         version: [12, 13, 14, 15, 16]
     runs-on: macos-latest
     env:
-      CC: clang-${{ matrix.version }}
-      CXX: clang++-${{ matrix.version }}
+      CC: /usr/local/opt/llvm@${{ matrix.version }}/bin/clang
+      CXX: /usr/local/opt/llvm@${{ matrix.version }}/bin/clang++
     steps:
       - uses: actions/checkout@v3
         name: Checkout repository
