@@ -1,5 +1,6 @@
 {
     "cmake.configureOnOpen": false,
+    "cmake.configureOnEdit": false,
     "[cmake]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "twxs.cmake"
