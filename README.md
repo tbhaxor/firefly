@@ -19,16 +19,35 @@ The library was designed to help people learn C++ and its concepts. It's a simpl
 
 2. Configure the cmake build
    ```console
-   cmake -Bbuild -DFirefly_ENABLE_EXAMPLES=ON -DFirefly_ENABLE_DOUBLE_PRECISION=ON
+   cmake -Bbuild -DFirefly_ENABLE_EXAMPLES=ON
    ```
 
-   The given CMake command allows you to enable the compilation of examples using double precision. To disable examples, you can either omit `-DFirefly_ENABLE_EXAMPLES=ON` or explicitly set it to `-DFirefly_ENABLE_EXAMPLES=OFF`. Additionally, if you prefer using single precision (float) instead of double precision, you can either omit `-DFirefly_ENABLE_DOUBLE_PRECISION=ON` or set it to `-DFirefly_ENABLE_DOUBLE_PRECISION=OFF`.
+   <center>
 
+   | CMake Options | Type | Description |
+   | :-----------: | :--: | :---------- |
+   | Firefly_ENABLE_EXAMPLES | Boolean | Adds the `examples/` directory in the compile target. (default: `OFF`) |
+   | Firefly_ENABLE_DOUBLE_PRECISION | Boolean | Enables `double` type instead of `float` when enabled. (default: `ON`) |
+   | Firefly_ENABLE_TESTS | Boolean | Download gtest and configures it to enable test. Check [Testing](#testing) section below. (default: `OFF`) |
+
+   </center>
+   
 3. Build the code and install it
    ```console
    cmake --build build -j `nproc`
    sudo cmake --build build --target install/strip
    ```
+
+## Testing
+
+By default tests are disable, you can enable them with `-DFirefly_ENABLE_TESTS` and run using ctest, as shown below.
+
+```console
+cmake -Bbuild -DCMAKE_BUILD_TYPE=Debug -DFirefly_ENABLE_TESTS=ON
+cmake --build build 
+ctest --test-dir build/tests --verbose
+```
+
 
 ## Example Usage
 
@@ -62,6 +81,13 @@ int main() {
 
 ```console
 g++ main.cpp -lfirefly -o mycode
+./mycode
+```
+
+Or with double precision
+
+```console
+g++ main.cpp -DDOUBLE_PRECISION=1 -lfirefly -o mycode
 ./mycode
 ```
 
