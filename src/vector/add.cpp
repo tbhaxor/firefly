@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <cmath>
+#include <functional>
 #include <stdexcept>
 
 #include "firefly/vector.hpp"
@@ -13,17 +13,16 @@ Vector Vector::Add(Vector const &_fvec) const {
   Vector sum{m_vec.size()};
 
   std::transform(m_vec.cbegin(), m_vec.cend(), _fvec.m_vec.begin(),
-                 sum.m_vec.begin(),
-                 [](Real const &a, Real const &b) { return a + b; });
+                 sum.m_vec.begin(), std::plus<Real>());
 
   return sum;
 }
 
 Vector Vector::Add(Real const &_scalar) const {
-  Vector sum{m_vec.size()};
+  Vector sum{VectorType(m_vec.size(), _scalar)};
 
-  std::transform(m_vec.cbegin(), m_vec.cend(), sum.m_vec.begin(),
-                 [&](Real const &_el) { return _el + _scalar; });
+  std::transform(m_vec.cbegin(), m_vec.cend(), sum.m_vec.cbegin(),
+                 sum.m_vec.begin(), std::plus<Real>());
 
   return sum;
 }
@@ -33,6 +32,4 @@ Vector Vector::operator+(Real const &_scalar) const {
 }
 
 Vector Vector::operator+(Vector const &_fvec) const { return this->Add(_fvec); }
-
-Vector Vector::operator++() const { return this->Add(1); }
 } // namespace Firefly

@@ -1,14 +1,23 @@
 #include <sstream>
 
 #include "firefly/vector.hpp"
+
 namespace Firefly {
 std::string Vector::View() const {
   std::stringstream ss;
   ss << "[";
-  for (auto &el : m_vec) {
-    ss << el << ", ";
+
+  if (!m_vec.empty()) {
+    // Print the first element without a leading comma
+    ss << m_vec[0];
+
+    // Print the remaining elements with a leading comma
+    for (size_t i = 1; i < m_vec.size(); ++i) {
+      ss << ", " << m_vec[i];
+    }
   }
-  ss << "\b\b]";
+
+  ss << "]";
   return ss.str();
 }
 

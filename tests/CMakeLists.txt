@@ -1,8 +1,6 @@
+file(GLOB_RECURSE SOURCES "*.cpp")
 
-project(_test)
+add_executable(FireflyTests ${SOURCES})
+target_link_libraries(FireflyTests PRIVATE GTest::gtest_main Firefly::Shared)
 
-add_executable(${PROJECT_NAME} test.cpp)
-
-target_link_libraries(
-    ${PROJECT_NAME} firefly
-)
+gtest_discover_tests(FireflyTests)

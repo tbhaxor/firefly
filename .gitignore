@@ -66,4 +66,10 @@ _deps
 # Ignore all local history of files
 .history
 
+### Clangd
+.cache
+
+### Doxygen
+docs
+
 # End of https://www.gitignore.io/api/c++,cmake,visualstudiocode

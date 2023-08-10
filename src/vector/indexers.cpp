@@ -5,8 +5,9 @@
 namespace Firefly {
 
 Real Vector::At(std::size_t idx) const {
+  // negative error will be underflown because of unsigned
   if (idx >= m_vec.size()) {
-    throw std::out_of_range(
+    throw std::length_error(
         "Index out of range. Requested index: " + std::to_string(idx) +
         ", Vector size: " + std::to_string(m_vec.size()));
   }
@@ -15,8 +16,11 @@ Real Vector::At(std::size_t idx) const {
 }
 
 Real &Vector::At(std::size_t idx) {
+  // negative error will be underflown because of unsigned
   if (idx >= m_vec.size()) {
-    m_vec.resize(idx + 1);
+    throw std::length_error(
+        "Index out of range. Requested index: " + std::to_string(idx) +
+        ", Vector size: " + std::to_string(m_vec.size()));
   }
 
   return m_vec[idx];

@@ -1,5 +1,6 @@
 {
     "cmake.configureOnOpen": false,
+    "cmake.configureOnEdit": false,
     "[cmake]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "twxs.cmake"
@@ -10,7 +11,7 @@
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
         "editor.tabSize": 2
     },
-    "files.associations": {
-        "/Doxfile": "doxygen"
-    }
+    "clangd.arguments": [
+        "--header-insertion=never"
+    ]
 }
