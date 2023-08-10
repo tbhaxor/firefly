@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_options(-std=c++17)
 
-option(Firefly_ENABLE_DOUBLE_PRECISION "Whether or not to enable double precision. If this is false, float will be used." OFF)
+option(Firefly_ENABLE_DOUBLE_PRECISION "Whether or not to enable double precision. If this is false, float will be used." ON)
 option(Firefly_ENABLE_EXAMPLES "Whether or not to enable examples" OFF)
 
 if (${Firefly_ENABLE_DOUBLE_PRECISION})
