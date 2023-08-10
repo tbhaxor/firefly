@@ -8,22 +8,18 @@ PROJECT_NUMBER         = "2.1"
 
 
 FILE_PATTERNS          = *.cpp *.hpp
-INPUT                  = ./headers ./src
+INPUT                  = README.md ./headers ./src
 RECURSIVE              = YES
 EXAMPLE_PATH           = ./examples
 OUTPUT_DIRECTORY       = ./docs
 
 SHOW_FILES             = YES
-
 ENABLED_SECTIONS       = mainpage
+USE_MDFILE_AS_MAINPAGE = README.md
 
 EXTRACT_ALL            = YES
-
 HAVE_DOT               = NO
-
 UML_LOOK               = YES
 
 GENERATE_HTML          = YES
-
 HTML_OUTPUT            = html
-

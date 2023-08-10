@@ -45,7 +45,7 @@ The library was designed to help people learn C++ and its concepts. It's a simpl
 
 ## Testing
 
-By default tests are disable, you can enable them with `-DFirefly_ENABLE_TESTS` and run using ctest, as shown below.
+By default tests are disabled, you can enable them with `-DFirefly_ENABLE_TESTS` and run using ctest, as shown below.
 
 ```console
 cmake -Bbuild -DCMAKE_BUILD_TYPE=Debug -DFirefly_ENABLE_TESTS=ON
