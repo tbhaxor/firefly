@@ -75,8 +75,8 @@ jobs:
         version: [9, 10, 11, 12, 13]
     runs-on: macos-latest
     env:
-      CC: clang-${{ matrix.version }}
-      CXX: clang++-${{ matrix.version }}
+      CC: gcc-${{ matrix.version }}
+      CXX: g++-${{ matrix.version }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout repository
@@ -134,7 +134,7 @@ jobs:
           version: ${{ matrix.version }}
       - run: |
           cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
-          cmake --build build -- -j `nproc`
+          cmake --build build
         name: Configure and build binaries
       - run: |
           ctest --test-dir build/tests/ --verbose
