@@ -1,11 +1,10 @@
-#include <iostream>
 #include <numeric>
 
 #include "firefly/vector.hpp"
 
 namespace Firefly {
 Real Vector::Dot(Vector const &_fvec) const {
-  if (this->Size() != _fvec.Size()) {
+  if (m_vec.size() != _fvec.m_vec.size()) {
     throw std::length_error("Size of two vectors must be equal.");
   }
 

@@ -4,8 +4,9 @@
 
 namespace Firefly {
 bool Vector::IsSame(Vector const &_fvec) const {
-  if (m_vec.size() != m_vec.size())
+  if (m_vec.size() != m_vec.size()) {
     return false;
+  }
 
   return std::equal(m_vec.cbegin(), m_vec.cend(), _fvec.m_vec.cbegin());
 }

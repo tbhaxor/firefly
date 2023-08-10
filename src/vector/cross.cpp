@@ -3,7 +3,7 @@
 namespace Firefly {
 Vector Vector::Cross(Vector const &_fvec) const {
   if (m_vec.size() != 3 || _fvec.m_vec.size() != 3) {
-    throw std::invalid_argument("Both vectors must be three-dimensional.");
+    throw std::length_error("Both vectors must be three-dimensional.");
   }
 
   Vector cross{m_vec.size()};
