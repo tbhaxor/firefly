@@ -1,0 +1,32 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+    "name": "Firefly Dev",
+    "image": "mcr.microsoft.com/devcontainers/cpp",
+    //	Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "llvm-vs-code-extensions.vscode-clangd",
+                "twxs.cmake"
+            ],
+            "settings": {
+                "cmake.configureOnOpen": false,
+                "cmake.configureOnEdit": false,
+                "[cmake]": {
+                    "editor.formatOnSave": true,
+                    "editor.defaultFormatter": "twxs.cmake"
+                },
+                "[cpp]": {
+                    "editor.formatOnSave": true,
+                    "editor.insertSpaces": false,
+                    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+                    "editor.tabSize": 2
+                },
+                "clangd.arguments": [
+                    "--header-insertion=never"
+                ]
+            }
+        }
+    }
+}
