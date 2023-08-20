@@ -40,8 +40,9 @@ jobs:
           cmake --build build 
         name: Configure and build binaries
       - run: |
-          ctest --test-dir build/tests/ --verbose
+          ctest --output-on-failure
         name: Run tests
+        working-directory: build/tests
   
   unit_test_llvm_linux:
     name: Linux (LLVM=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
@@ -66,8 +67,9 @@ jobs:
           cmake --build build 
         name: Configure and build binaries
       - run: |
-          ctest --test-dir build/tests/ --verbose
+          ctest --output-on-failure
         name: Run tests
+        working-directory: build/tests
   
   unit_test_gcc_macos:
     name: MacOS (GCC=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
@@ -91,8 +93,9 @@ jobs:
           cmake --build build 
         name: Configure and build binaries
       - run: |
-          ctest --test-dir build/tests/ --verbose
+          ctest --output-on-failure
         name: Run tests
+        working-directory: build/tests
   
   unit_test_llvm_macos:
     name: MacOS (LLVM=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
@@ -116,5 +119,6 @@ jobs:
           cmake --build build 
         name: Configure and build binaries
       - run: |
-          ctest --test-dir build/tests/ --verbose
+          ctest --output-on-failure
         name: Run tests
+        working-directory: build/tests
