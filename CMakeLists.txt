@@ -51,4 +51,4 @@ if (${Firefly_ENABLE_TESTS})
 endif()
 
 install(TARGETS ${PROJECT_NAME})
-install(DIRECTORY headers DESTINATION include)
+install(DIRECTORY headers/ DESTINATION include)
