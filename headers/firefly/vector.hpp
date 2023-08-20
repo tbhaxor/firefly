@@ -43,7 +43,7 @@ public:
   explicit Vector(VectorType const &_vec);
   /**
    * @brief Copy constructor to create a new vector from an existing one.
-   * @param _f The source vector to copy from.
+   * @param _fvec The source vector to copy from.
    */
   Vector(Vector const &_fvec);
 
@@ -127,7 +127,7 @@ public:
    * @param _scalar The scalar value to scale the vector by.
    * @return New vector containing the scaled result.
    */
-  [[nodiscard]] Vector Scale(Real const &_fvec) const;
+  [[nodiscard]] Vector Scale(Real const &_scalar) const;
 
   /**
    * @brief Overloaded operator to perform vector scaling.
