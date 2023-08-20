@@ -34,7 +34,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Pre-processing README.md
         run: |
-          sed 's|\(tests/CMakeLists\.txt#L5\)|https://github.com/tbhaxor/firefly/blob/master/\1|' README.md
+          sed -i 's|\(tests/CMakeLists\.txt#L5\)|https://github.com/tbhaxor/firefly/blob/master/\1|' README.md
       - name: Build documentation
         run: |
           ./doxygen-1.9.7/bin/doxygen
