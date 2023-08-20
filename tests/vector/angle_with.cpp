@@ -12,16 +12,14 @@ TEST(Vector, angle_with__perp_vector__90) {
   Firefly::Vector v1{{3, 4}};
   Firefly::Vector v2{{-4, 3}};
 
-  ASSERT_NO_THROW({ ASSERT_EQ(v1.AngleWith(v2), M_PI / 2); });
+  ASSERT_NO_THROW(
+      { ASSERT_NEAR(v1.AngleWith(v2), M_PI_2, Firefly_TEST_EPSILON); });
 }
 
 TEST(Vector, angle_with__parallel_vector__180) {
   Firefly::Vector v{{1, 3}};
 
-  ASSERT_NO_THROW({
-    EXPECT_NEAR(v.AngleWith(v), 0,
-                std::max(static_cast<Real>(0), v.AngleWith(v)));
-  });
+  ASSERT_NO_THROW({ EXPECT_NEAR(v.AngleWith(v), 0, Firefly_TEST_EPSILON); });
 }
 
 TEST(Vector, angle_with__opp_vector__180) {

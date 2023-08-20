@@ -53,6 +53,7 @@ cmake --build build
 ctest --test-dir build/tests --verbose
 ```
 
+> **Note** If you are using `ASSERT_NEAR` in your test cases, I advice using `Firefly_TEST_EPSILON` macro defined [here](tests/CMakeLists.txt#L5).
 
 ## Example Usage
 
@@ -108,6 +109,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC firefly)
 
 ## Contact
 
-Email: tbhaxor@proton.me <br />
+Email: tbhaxor _at_ proton _dot_ me <br />
 Twitter: @tbhaxor <br />
 LinkedIn: @tbhaxor 
