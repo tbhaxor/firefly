@@ -23,3 +23,10 @@ UML_LOOK               = YES
 
 GENERATE_HTML          = YES
 HTML_OUTPUT            = html
+
+GENERATE_TREEVIEW      = YES # required!
+DISABLE_INDEX          = NO
+FULL_SIDEBAR           = NO
+HTML_EXTRA_STYLESHEET  = externals/doxygen-awesome-css/doxygen-awesome.css \
+                        externals/doxygen-awesome-css/doxygen-awesome-sidebar-only.css
+HTML_COLORSTYLE        = LIGHT # required with Doxygen >= 1.9.5
