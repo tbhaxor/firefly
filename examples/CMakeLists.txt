@@ -6,4 +6,4 @@ set(CXX_STANDARD 17)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-target_link_libraries(${PROJECT_NAME} Firefly::Shared)
+target_link_libraries(${PROJECT_NAME} firefly)

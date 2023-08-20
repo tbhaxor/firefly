@@ -16,14 +16,14 @@ endif()
 
 include_directories(headers)
 
-add_library(${PROJECT_NAME}_static STATIC)
-add_library(${PROJECT_NAME}_shared SHARED)
 
-set_target_properties(${PROJECT_NAME}_static PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
-set_target_properties(${PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
+add_library(${PROJECT_NAME} SHARED)
 
-add_library(Firefly::Shared ALIAS ${PROJECT_NAME}_shared)
-add_library(Firefly::Static ALIAS ${PROJECT_NAME}_static)
+if(MSVC)
+  target_compile_options(${PROJECT_NAME} PRIVATE /W4 /WX)
+else()
+  target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()
 
 add_subdirectory(src)
 
@@ -50,5 +50,5 @@ if (${Firefly_ENABLE_TESTS})
     add_subdirectory(tests)
 endif()
 
-install(TARGETS ${PROJECT_NAME}_static ${PROJECT_NAME}_shared)
-install(DIRECTORY headers/ DESTINATION include)
+install(TARGETS ${PROJECT_NAME})
+install(DIRECTORY headers DESTINATION include)

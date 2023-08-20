@@ -99,11 +99,7 @@ g++ main.cpp -DDOUBLE_PRECISION=1 -lfirefly -o mycode
 ### Build using `CMake`
 
 ```cmake
-# for shared linking
-target_link_libraries(${PROJECT_NAME} PUBLIC Firefly::Shared)
-
-# for static linking
-target_link_libraries(${PROJECT_NAME} PUBLIC Firefly::Static)
+target_link_libraries(${PROJECT_NAME} PUBLIC firefly)
 ```
 
 ## Future Plans
