@@ -57,7 +57,7 @@ ctest --test-dir build/tests --verbose
 
 ## Example Usage
 
-~~~c++
+~~~cpp
 #include <iostream>
 #include <vector>
 
