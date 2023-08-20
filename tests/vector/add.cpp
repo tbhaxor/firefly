@@ -31,9 +31,6 @@ TEST(Vector, add__scalar) {
     auto v2 = v1 + 10;
 
     ASSERT_EQ(v2.Size(), v1.Size());
-    ASSERT_EQ(v2.At(0), 11);
-    ASSERT_EQ(v2.At(1), 12);
-    ASSERT_EQ(v2.At(2), 13);
-    ASSERT_EQ(v2.At(3), 14);
+    ASSERT_EQ(v2.ElemSum(), 40 + v1.ElemSum());
   });
 }

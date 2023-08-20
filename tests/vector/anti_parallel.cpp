@@ -9,6 +9,6 @@ TEST(Vector, subtract__unary__make_opposite) {
 
   ASSERT_NO_THROW({
     ASSERT_TRUE(v.IsParallel(-v));
-    ASSERT_EQ(v.AngleWith(-v), M_PI);
+    ASSERT_NEAR(v.AngleWith(-v), M_PI, Firefly_TEST_EPSILON);
   });
 }

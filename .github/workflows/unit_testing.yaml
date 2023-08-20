@@ -18,11 +18,12 @@ jobs:
         name: Run test generator script
 
   unit_test_gcc_linux:
-    name: Linux (GCC=v${{ matrix.version }})
+    name: Linux (GCC=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
     needs: [ ensure_tests ]
     strategy:
       matrix:
         version: [9, 10, 11, 12, 13]
+        double-precision: [ON, OFF]
     runs-on: ubuntu-latest
     env:
       CC: gcc-${{ matrix.version }}
@@ -35,19 +36,21 @@ jobs:
         with:
           version: ${{ matrix.version }}
       - run: |
-          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
+          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_DOUBLE_PRECISION=${{ matrix.double-precision }} -DFirefly_ENABLE_EXAMPLES=ON
           cmake --build build 
         name: Configure and build binaries
       - run: |
-          ctest --test-dir build/tests/ --verbose
+          ctest --output-on-failure
         name: Run tests
+        working-directory: build/tests
   
   unit_test_llvm_linux:
-    name: Linux (LLVM=v${{ matrix.version }})
+    name: Linux (LLVM=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
     needs: [ ensure_tests ]
     strategy:
       matrix:
         version: [11, 12, 13, 14, 15, 16]
+        double-precision: [ON, OFF]
     runs-on: ubuntu-latest
     env:
       CC: clang-${{ matrix.version }}
@@ -60,19 +63,21 @@ jobs:
         with:
           version: ${{ matrix.version }}
       - run: |
-          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
+          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_DOUBLE_PRECISION=${{ matrix.double-precision }} -DFirefly_ENABLE_EXAMPLES=ON
           cmake --build build 
         name: Configure and build binaries
       - run: |
-          ctest --test-dir build/tests/ --verbose
+          ctest --output-on-failure
         name: Run tests
+        working-directory: build/tests
   
   unit_test_gcc_macos:
-    name: MacOS (GCC=v${{ matrix.version }})
+    name: MacOS (GCC=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
     needs: [ ensure_tests ]
     strategy:
       matrix:
         version: [10, 11, 12, 13]
+        double-precision: [ON, OFF]
     runs-on: macos-latest
     env:
       CC: gcc-${{ matrix.version }}
@@ -84,19 +89,21 @@ jobs:
           brew install gcc@${{ matrix.version }}
         name: Install GCC
       - run: |
-          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
+          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_DOUBLE_PRECISION=${{ matrix.double-precision }} -DFirefly_ENABLE_EXAMPLES=ON
           cmake --build build 
         name: Configure and build binaries
       - run: |
-          ctest --test-dir build/tests/ --verbose
+          ctest --output-on-failure
         name: Run tests
+        working-directory: build/tests
   
   unit_test_llvm_macos:
-    name: MacOS (LLVM=v${{ matrix.version }})
+    name: MacOS (LLVM=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
     needs: [ ensure_tests ]
     strategy:
       matrix:
         version: [12, 13, 14, 15, 16]
+        double-precision: [ON, OFF]
     runs-on: macos-latest
     env:
       CC: /usr/local/opt/llvm@${{ matrix.version }}/bin/clang
@@ -108,9 +115,10 @@ jobs:
           brew install llvm@${{ matrix.version }}
         name: Install LLVM
       - run: |
-          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON
+          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_DOUBLE_PRECISION=${{ matrix.double-precision }} -DFirefly_ENABLE_EXAMPLES=ON
           cmake --build build 
         name: Configure and build binaries
       - run: |
-          ctest --test-dir build/tests/ --verbose
+          ctest --output-on-failure
         name: Run tests
+        working-directory: build/tests

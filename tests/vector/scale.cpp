@@ -28,7 +28,7 @@ TEST(Vector, scale__positive) {
 TEST(Vector, scale__positive_n__n_times_magnitude) {
   Firefly::Vector v{{1, 2, 3}};
 
-  ASSERT_EQ((v * 10).Magnitude(), v.Magnitude() * 10);
+  ASSERT_NEAR((v * 10).Magnitude(), v.Magnitude() * 10, Firefly_TEST_EPSILON);
 }
 
 TEST(Vector, scale__negative__opposite) {
@@ -36,6 +36,6 @@ TEST(Vector, scale__negative__opposite) {
   Firefly::Vector v2 = v1 * -1;
 
   ASSERT_EQ(v2, -v1);
-  ASSERT_EQ(v1.AngleWith(v2), M_PI);
+  ASSERT_NEAR(v1.AngleWith(v2), M_PI, Firefly_TEST_EPSILON);
   ASSERT_TRUE(v1.IsParallel(v2));
 }
