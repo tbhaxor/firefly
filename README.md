@@ -18,14 +18,14 @@ The library was designed to help people learn C++ and its concepts. It's a simpl
 > **Note** Ensure CMake 3.10+ and either Make or Ninja build systems are installed before following the steps.
 
 1. Clone the repository
-   ```console
+   ~~~console
    git clone --depth=1 --branch=master https://github.com/tbhaxor/firefly.git firefly
-   ```
+   ~~~
 
 2. Configure the cmake build
-   ```console
+   ~~~console
    cmake -Bbuild -DFirefly_ENABLE_EXAMPLES=ON
-   ```
+   ~~~
 
    <center>
 
@@ -38,26 +38,26 @@ The library was designed to help people learn C++ and its concepts. It's a simpl
    </center>
    
 3. Build the code and install it
-   ```console
+   ~~~console
    cmake --build build -j `nproc`
    sudo cmake --build build --target install/strip
-   ```
+   ~~~
 
 ## Testing
 
 By default tests are disabled, you can enable them with `-DFirefly_ENABLE_TESTS` and run using ctest, as shown below.
 
-```console
+~~~console
 cmake -Bbuild -DCMAKE_BUILD_TYPE=Debug -DFirefly_ENABLE_TESTS=ON
 cmake --build build 
 ctest --test-dir build/tests --verbose
-```
+~~~
 
 > **Note** If you are using `ASSERT_NEAR` in your test cases, I advice using `Firefly_TEST_EPSILON` macro defined [here](tests/CMakeLists.txt#L5).
 
 ## Example Usage
 
-```c++
+~~~c++
 #include <iostream>
 #include <vector>
 
@@ -81,27 +81,27 @@ int main() {
    std::cout << v2 << std::endl; // [2, 3, 4, 1]
    std::cout << vec_addition << std::endl; // [3, 5, 7, 5]
 }
-```
+~~~
 
 ### Build directly from compiler
 
-```console
+~~~console
 g++ main.cpp -lfirefly -o mycode
 ./mycode
-```
+~~~
 
 Or with double precision
 
-```console
+~~~console
 g++ main.cpp -DDOUBLE_PRECISION=1 -lfirefly -o mycode
 ./mycode
-```
+~~~
 
 ### Build using `CMake`
 
-```cmake
+~~~cmake
 target_link_libraries(${PROJECT_NAME} PUBLIC firefly)
-```
+~~~
 
 ## Future Plans
 
