@@ -97,7 +97,7 @@ g++ main.cpp -DDOUBLE_PRECISION=1 -lfirefly -o mycode
 ./mycode
 ~~~
 
-### Build using `CMake`
+### Build using CMake
 
 ~~~cmake
 target_link_libraries(${PROJECT_NAME} PUBLIC firefly)
