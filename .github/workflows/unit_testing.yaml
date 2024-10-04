@@ -1,124 +1,40 @@
 name: Unit Testing
 
 on:
-  push:
-    branches: [master]
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize]
 
 jobs:
-  ensure_tests:
-    name: Ensure No Missing Tests
+  unit_test_gcc:
+    strategy:
+      matrix:
+        version: [13, 14]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        name: Checkout repository
       - run: |
-          ./scripts/test_generator.sh
-        name: Run test generator script
+          sudo cp .github/apt-sources/ubuntu.sources /etc/apt/sources.list.d/
+          sudo cp .github/apt-sources/ubuntu-archive-keyring.gpg /usr/share/keyrings/ubuntu-archive-keyring.gpg
+          sudo apt update
+          sudo apt install build-essential gcc-${{ matrix.version }} g++-${{ matrix.version }} -y
+      - run: |
+          cmake -Bbuild -DCMAKE_C_COMPILER=gcc-${{ matrix.version }} -DCMAKE_CXX_COMPILER=g++-${{ matrix.version }} -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_EXAMPLES=ON
+          cmake --build build
+      - run: ctest --test-dir build/tests --output-on-failure
 
-  unit_test_gcc_linux:
-    name: Linux (GCC=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
-    needs: [ ensure_tests ]
+  unit_test_llvm:
     strategy:
       matrix:
-        version: [9, 10, 11, 12, 13]
-        double-precision: [ON, OFF]
+        version: [16, 17, 18]
     runs-on: ubuntu-latest
-    env:
-      CC: gcc-${{ matrix.version }}
-      CXX: g++-${{ matrix.version }}
     steps:
       - uses: actions/checkout@v3
-        name: Checkout repository
-      - uses: egor-tensin/setup-gcc@v1.3
-        name: Install GCC
-        with:
-          version: ${{ matrix.version }}
       - run: |
-          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_DOUBLE_PRECISION=${{ matrix.double-precision }} -DFirefly_ENABLE_EXAMPLES=ON
-          cmake --build build 
-        name: Configure and build binaries
+          sudo cp .github/apt-sources/ubuntu.sources /etc/apt/sources.list.d/
+          sudo cp .github/apt-sources/ubuntu-archive-keyring.gpg /usr/share/keyrings/ubuntu-archive-keyring.gpg
+          sudo apt update
+          sudo apt install build-essential clang-${{ matrix.version }} -y
       - run: |
-          ctest --output-on-failure
-        name: Run tests
-        working-directory: build/tests
-  
-  unit_test_llvm_linux:
-    name: Linux (LLVM=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
-    needs: [ ensure_tests ]
-    strategy:
-      matrix:
-        version: [11, 12, 13, 14, 15, 16]
-        double-precision: [ON, OFF]
-    runs-on: ubuntu-latest
-    env:
-      CC: clang-${{ matrix.version }}
-      CXX: clang++-${{ matrix.version }}
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout repository
-      - uses: egor-tensin/setup-clang@v1.4
-        name: Install LLVM
-        with:
-          version: ${{ matrix.version }}
-      - run: |
-          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_DOUBLE_PRECISION=${{ matrix.double-precision }} -DFirefly_ENABLE_EXAMPLES=ON
-          cmake --build build 
-        name: Configure and build binaries
-      - run: |
-          ctest --output-on-failure
-        name: Run tests
-        working-directory: build/tests
-  
-  unit_test_gcc_macos:
-    name: MacOS (GCC=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
-    needs: [ ensure_tests ]
-    strategy:
-      matrix:
-        version: [10, 11, 12, 13]
-        double-precision: [ON, OFF]
-    runs-on: macos-latest
-    env:
-      CC: gcc-${{ matrix.version }}
-      CXX: g++-${{ matrix.version }}
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout repository
-      - run: |
-          brew install gcc@${{ matrix.version }}
-        name: Install GCC
-      - run: |
-          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_DOUBLE_PRECISION=${{ matrix.double-precision }} -DFirefly_ENABLE_EXAMPLES=ON
-          cmake --build build 
-        name: Configure and build binaries
-      - run: |
-          ctest --output-on-failure
-        name: Run tests
-        working-directory: build/tests
-  
-  unit_test_llvm_macos:
-    name: MacOS (LLVM=v${{ matrix.version }}, Double=${{ matrix.double-precision }})
-    needs: [ ensure_tests ]
-    strategy:
-      matrix:
-        version: [12, 13, 14, 15, 16]
-        double-precision: [ON, OFF]
-    runs-on: macos-latest
-    env:
-      CC: /usr/local/opt/llvm@${{ matrix.version }}/bin/clang
-      CXX: /usr/local/opt/llvm@${{ matrix.version }}/bin/clang++
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout repository
-      - run: |
-          brew install llvm@${{ matrix.version }}
-        name: Install LLVM
-      - run: |
-          cmake -Bbuild -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_DOUBLE_PRECISION=${{ matrix.double-precision }} -DFirefly_ENABLE_EXAMPLES=ON
-          cmake --build build 
-        name: Configure and build binaries
-      - run: |
-          ctest --output-on-failure
-        name: Run tests
-        working-directory: build/tests
+          cmake -Bbuild -DCMAKE_C_COMPILER=clang-${{ matrix.version }} -DCMAKE_CXX_COMPILER=clang++-${{ matrix.version }} -DFirefly_ENABLE_TESTS=ON -DFirefly_ENABLE_EXAMPLES=ON
+          cmake --build build
+      - run: ctest --test-dir build/tests --output-on-failure

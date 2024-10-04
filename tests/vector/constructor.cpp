@@ -3,29 +3,26 @@
 #include "firefly/vector.hpp"
 #include "gtest/gtest.h"
 
-TEST(Vector, construct__from_size) {
-  Firefly::Vector v{0};
+TEST(vector, constructor__default_initialize_zeroes) {
+  firefly::vector<int, 3> v1{};
 
-  ASSERT_EQ(v.Size(), 0);
+  ASSERT_EQ(v1[0], 0);
+  ASSERT_EQ(v1[1], 0);
+  ASSERT_EQ(v1[2], 0);
 }
 
-TEST(Vector, construct__with_size__zero) {
-  Firefly::Vector v{4};
-
-  ASSERT_EQ(v.Size(), 4);
-  ASSERT_TRUE(v.IsZero());
+TEST(vector, constructor__throws_when_list_length_does_not_match_template) {
+  ASSERT_THROW(({ firefly::vector<int, 2> v1{1, 2, 3}; }), std::out_of_range);
 }
 
-TEST(Vector, construct__from_std_vector) {
-  Firefly::Vector v{{1, 2, 3, 4}};
-
-  ASSERT_EQ(v.Size(), 4);
-  ASSERT_EQ(v.ElemSum(), 10);
+TEST(vector, constructor__does_not_throw_with_valid_length) {
+  ASSERT_NO_THROW(({ firefly::vector<int, 2> v1{1, 2}; }));
 }
 
-TEST(Vector, construct__from_firefly_vector) {
-  Firefly::Vector v1{{1, 2, 3, 4}};
-  Firefly::Vector v2{v1};
+TEST(vector, constructor__value_initizes_with_that_values) {
+  firefly::vector<float, 3> v1(3);
 
-  ASSERT_EQ(v1, v2);
+  ASSERT_EQ(v1[0], 3);
+  ASSERT_EQ(v1[1], 3);
+  ASSERT_EQ(v1[2], 3);
 }
