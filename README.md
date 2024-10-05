@@ -1,114 +1,120 @@
 # Firefly
 
-<p align="center">
-   <a href="https://www.producthunt.com/posts/libfirefly?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-libfirefly" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=406416&theme=light" alt="LibFirefly - A&#0032;standalone&#0032;C&#0043;&#0043;&#0032;Library&#0032;for&#0032;vectors&#0032;calculations | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-</p>
+Firefly is a header-only standalone C++ vector calculation library. It performs basic arithmetic operations on vectors and introduces utility functions for advanced functionalities. The library supports templates with arithmetic type precision, and currently, it is only available on CPU systems.
 
-This is a standalone C++ vector calculation library. It performs addition, subtraction, scalar multiplication, magnitude, normalisation, dot product, cross product, area of parallelogram, area of triangle, and angle between two vectors. The library supports both float and double precision and cuurrently it is only available on the CPU systems.
+The library was designed to help people learn C++ and its concepts. It's a simple implementation, but it's a good place to start if you want to learn more about linear algebra and C++
 
-The library was designed to help people learn C++ and its concepts. It's a simple implementation, but it's a good place to start if you want to learn more about linear algebra and C++.
+## Features
 
-## Supported Platforms and Compilers
+Firefly is loaded with a bunch of cool features designed to make your vector calculations a breeze:
 
-**Linux** GCC v9+ or Clang v11+ <br>
-**MacOS** GCC v10+ or Clang v12+ <br>
+### Core Features
+
+- **Header-Only:** Simply include the header files and you're good to go! No need to worry about linking libraries.
+- **Template Support:** Works seamlessly with various arithmetic types (e.g., int, float, double) and even complex numbers (std::complex).
+- **Arithmetic Operations** Perform basic arithmetic operations like addition, subtraction, and scaling on your vectors effortlessly.
+
+### Advanced Functionalities
+
+- Geometric Calculations: Compute dot products, cross products (for 3D vectors), and easily normalize vectors.
+- Utility Functions:
+  - Determine the angle between two vectors.
+  - Check if vectors are parallel, anti-parallel, or orthogonal.
+  - Calculate the area of a parallelogram or triangle formed by two vectors.
+  - Project or reject a vector onto or from another vector.
+  - Compute the Euclidean distance between two vectors.
+  - Reflect a vector across another vector.
+  - Rotate a 2D vector by a specified angle.
+  - Calculate the scalar projection of a vector onto another vector.
+  - Perform linear interpolation (Lerp) between two vectors.
+
+## Supported Compilers and Standard
+
+- GCC v13+ with c++-23
+- LLVM v16+ with c++-23
 
 ## Build and Install
 
-> **Note** Ensure CMake 3.10+ and either Make or Ninja build systems are installed before following the steps.
+> [!Note]
+> Ensure CMake 3.10+ and either Make or Ninja build systems are installed before following the steps.
 
 1. Clone the repository
-   ~~~console
+
+   ```console
    git clone --depth=1 --branch=master https://github.com/tbhaxor/firefly.git firefly
-   ~~~
+   ```
 
 2. Configure the cmake build
-   ~~~console
+
+   ```console
    cmake -Bbuild -DFirefly_ENABLE_EXAMPLES=ON
-   ~~~
+   ```
 
    <center>
 
-   | CMake Options | Type | Description |
-   | :-----------: | :--: | :---------- |
-   | Firefly_ENABLE_EXAMPLES | Boolean | Adds the `examples/` directory in the compile target. (default: `OFF`) |
-   | Firefly_ENABLE_DOUBLE_PRECISION | Boolean | Enables `double` type instead of `float` when enabled. (default: `ON`) |
-   | Firefly_ENABLE_TESTS | Boolean | Download gtest and configures it to enable test. Check [Testing](#testing) section below. (default: `OFF`) |
+   |      CMake Options      |  Type   | Description                                                                                                |
+   | :---------------------: | :-----: | :--------------------------------------------------------------------------------------------------------- |
+   | Firefly_ENABLE_EXAMPLES | Boolean | Adds the `examples/` directory in the compile target. (default: `OFF`)                                     |
+   |  Firefly_ENABLE_TESTS   | Boolean | Download gtest and configures it to enable test. Check [Testing](#testing) section below. (default: `OFF`) |
 
    </center>
-   
+
 3. Build the code and install it
-   ~~~console
-   cmake --build build -j `nproc`
-   sudo cmake --build build --target install/strip
-   ~~~
+   ```console
+   cmake --build build
+   sudo cmake --install build
+   ```
 
 ## Testing
 
 By default tests are disabled, you can enable them with `-DFirefly_ENABLE_TESTS` and run using ctest, as shown below.
 
-~~~console
+```console
 cmake -Bbuild -DCMAKE_BUILD_TYPE=Debug -DFirefly_ENABLE_TESTS=ON
-cmake --build build 
+cmake --build build
 ctest --test-dir build/tests --verbose
-~~~
-
-> **Note** If you are using `ASSERT_NEAR` in your test cases, I advice using `Firefly_TEST_EPSILON` macro defined [here](tests/CMakeLists.txt#L5).
+```
 
 ## Example Usage
 
-~~~cpp
+```cpp
 #include <iostream>
-#include <vector>
-
+#include <firefly/utilities.hpp>
 #include <firefly/vector.hpp>
 
 int main() {
-   // define two vectors
-   std::vector<Real> vec1{1, 2, 3, 4};
-   std::vector<Real> vec2{2, 3, 4, 1};
+  firefly::vector<int, 2> v1{1, 2};
+  firefly::vector<int, 2> v2{-8, 6};
+  auto v3 = v1 + v2;
+  firefly::vector<std::complex<int>, 5> v4{{1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}};
+  auto v5 = v4.as_type<int>();
 
-   // define firefly vectors from std::vector
-   Firefly::Vector v1(vec1);
-   Firefly::Vector v2(vec2);
-
-   // add two firefly vectors and 
-   // returns Firefly::Vector type
-   auto vec_addition = v1 + v2;
-   
-   // print out v1 on 
-   std::cout << v1 << std::endl; // [1, 2, 3, 4]
-   std::cout << v2 << std::endl; // [2, 3, 4, 1]
-   std::cout << vec_addition << std::endl; // [3, 5, 7, 5]
+  std::cout << v1 << std::endl;
+  std::cout << v2 << std::endl;
+  std::cout << v3 << std::endl;
+  std::cout << v4 << std::endl;
+  std::cout << v5 << std::endl;
+  std::cout << v1.norm() << std::endl;
+  std::cout << v1.to_normalized().norm() << std::endl;
+  std::cout << firefly::utilities::vector::angle_between(v1, v2) << std::endl
+            << std::boolalpha << firefly::utilities::vector::are_orthogonal(v1, v2) << std::endl
+            << firefly::utilities::vector::are_parallel(v1, v1) << std::endl
+            << firefly::utilities::vector::are_anti_parallel(v1, -v1) << std::endl
+            << std::noboolalpha;
 }
-~~~
-
-### Build directly from compiler
-
-~~~console
-g++ main.cpp -lfirefly -o mycode
-./mycode
-~~~
-
-Or with double precision
-
-~~~console
-g++ main.cpp -DDOUBLE_PRECISION=1 -lfirefly -o mycode
-./mycode
-~~~
-
-### Build using CMake
-
-~~~cmake
-target_link_libraries(${PROJECT_NAME} PUBLIC firefly)
-~~~
+```
 
 ## Future Plans
 
 - Implement Kokkos for HPC platforms
 
+## Scope of Contribution
+
+- First of all, if you can help me implement [future plans](#future-plans), I would be thankful to you
+- Documentation using doxygen. I am new to it, you may help me add more professional documentation
+- Add more test cases. I may have left some of the edge cases that you might have come across.
+
 ## Contact
 
-Email: tbhaxor _at_ proton _dot_ me <br />
 Twitter: @tbhaxor <br />
-LinkedIn: @tbhaxor 
+LinkedIn: @tbhaxor

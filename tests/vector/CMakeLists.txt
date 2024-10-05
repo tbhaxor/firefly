@@ -1,0 +1,1 @@
+target_sources(FireflyTests PRIVATE add.cpp constructor.cpp misc.cpp product.cpp subtract.cpp)

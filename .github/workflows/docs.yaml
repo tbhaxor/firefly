@@ -1,8 +1,8 @@
 name: Deploy docs
 
 on:
-  push:
-    branches: ["master"]
+  release:
+    types: published
   workflow_dispatch:
 
 permissions:
@@ -21,28 +21,20 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           submodules: true
-      - name: Install doxygen
-        run: |
+      - run: |
           sudo apt install graphviz -y
           wget https://github.com/doxygen/doxygen/releases/download/Release_1_9_7/doxygen-1.9.7.linux.bin.tar.gz
           tar xf doxygen-1.9.7.linux.bin.tar.gz
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Pre-processing README.md
-        run: |
-          sed -i 's|\(tests/CMakeLists\.txt#L5\)|https://github.com/tbhaxor/firefly/blob/master/\1|' README.md
-      - name: Build documentation
+      - uses: actions/configure-pages@v3
+      - name: build documentation
         run: |
           ./doxygen-1.9.7/bin/doxygen
           touch docs/html/.nojekyll
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v2
         with:
-          path: 'docs/html'
-      - name: Deploy to GitHub Pages
+          path: "docs/html"
+      - uses: actions/deploy-pages@v2
         id: deployment
-        uses: actions/deploy-pages@v2
