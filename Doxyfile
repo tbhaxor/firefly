@@ -4,7 +4,7 @@
 
 PROJECT_NAME           = "Firefly"
 PROJECT_BRIEF          = "Standalone library for vector calculations"
-PROJECT_NUMBER         = "3.0.0"
+PROJECT_NUMBER         = "3.1.0"
 
 
 FILE_PATTERNS          = *.cpp *.hpp
