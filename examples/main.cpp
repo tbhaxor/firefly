@@ -14,6 +14,10 @@ int main() {
   std::cout << v3 << std::endl;
   std::cout << v4 << std::endl;
   std::cout << v5 << std::endl;
+  std::cout << 1 + v1 << std::endl;
+  std::cout << 1.2f + v1 << std::endl;
+  std::cout << std::complex<int>{1, 2} + v1 << std::endl;
+  std::cout << std::complex<float>{1.3, 2.5} + v1 << std::endl;
   std::cout << v1.norm() << std::endl;
   std::cout << v1.to_normalized().norm() << std::endl;
   std::cout << firefly::utilities::vector::angle_between(v1, v2) << std::endl

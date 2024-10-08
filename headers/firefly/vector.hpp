@@ -83,6 +83,7 @@ struct common_type<std::complex<T1>, std::complex<T2>> {
  */
 template <typename T1, typename T2>
 using common_type_t = typename common_type<T1, T2>::type;
+
 /**
  * @brief Concept that ensures the type is a complex number type.
  *
@@ -264,6 +265,23 @@ public:
   }
 
   /**
+   * @brief Adds a scalar to a vector.
+   *
+   * This friend function allows adding a scalar to a vector, returning a new vector
+   * with the scalar added to each element of the original vector.
+   *
+   * @tparam U The type of the scalar.
+   * @param scalar The scalar value to add.
+   * @param vec The vector to add the scalar to.
+   *
+   * @return A new vector with the result of the addition.
+   */
+  template <vector_type U>
+  friend constexpr auto operator+(U const scalar, vector<T, Length> const &vec) {
+    return vec + scalar;
+  }
+
+  /**
    * @brief Performs element-wise addition of two vectors using the `+=` operator.
    *
    * This operator overload allows element-wise addition of two vectors, updating the current vector
@@ -355,6 +373,23 @@ public:
   template <vector_type U>
   [[nodiscard]] constexpr auto operator-(U const scalar) const {
     return subtract(scalar);
+  }
+
+  /**
+   * @brief Subtracts a scalar to a vector.
+   *
+   * This friend function allows subtracting a scalar to a vector, returning a new vector
+   * with the scalar subtracted from each element of the original vector.
+   *
+   * @tparam U The type of the scalar.
+   * @param scalar The scalar value to subtract.
+   * @param vec The vector to add the scalar to.
+   *
+   * @return A new vector with the result of the subtraction.
+   */
+  template <vector_type U>
+  friend constexpr auto operator-(U const scalar, vector<T, Length> const &vec) {
+    return vec - scalar;
   }
 
   /**
@@ -486,6 +521,23 @@ public:
   }
 
   /**
+   * @brief Scales a vector by a scalar.
+   *
+   * This friend function allows scaling a vector by a scalar, returning a new vector
+   * with each element of the original vector multiplied by the scalar.
+   *
+   * @tparam U The type of the scalar.
+   * @param scalar The scalar value to scale by.
+   * @param vec The vector to scale.
+   *
+   * @return A new vector with the result of the scaling.
+   */
+  template <vector_type U>
+  friend constexpr auto operator*(U const scalar, vector<T, Length> const &vec) {
+    return vec * scalar;
+  }
+
+  /**
    * @brief Scales the vector in place using the `*=` operator.
    *
    * This operator overload allows in-place scaling of the vector by a scalar value.
@@ -513,6 +565,23 @@ public:
   template <vector_type U>
   [[nodiscard]] constexpr auto operator/(U const scalar) const {
     return scale(1 / scalar);
+  }
+
+  /**
+   * @brief Performs inverse scaling of a vector by a scalar.
+   *
+   * This friend function allows inverse scaling of a vector by a scalar, returning a new vector
+   * with each element of the original vector divided by the scalar.
+   *
+   * @tparam U The type of the scalar.
+   * @param scalar The scalar value to inversely scale by.
+   * @param vec The vector to scale.
+   *
+   * @return A new vector with the result of the inverse scaling.
+   */
+  template <vector_type U>
+  friend constexpr auto operator/(U const scalar, vector<T, Length> const &vec) {
+    return vec / scalar;
   }
 
   /**
