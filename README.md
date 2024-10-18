@@ -30,8 +30,11 @@ Firefly is loaded with a bunch of cool features designed to make your vector cal
 
 ## Supported Compilers and Standard
 
-- GCC v13+ with c++-23
-- LLVM v16+ with c++-23
+- GCC v13+
+- LLVM v16+
+
+> [!IMPORTANT]
+> Your compiler must support C++ standard 23 [ref](https://github.com/tbhaxor/firefly/blob/208ef838b3f9290d3d6272b476e0a15f7a6b17fb/CMakeLists.txt#L6)
 
 ## Build and Install
 
@@ -48,6 +51,9 @@ Firefly is loaded with a bunch of cool features designed to make your vector cal
 
    ```console
    cmake -Bbuild -DFirefly_ENABLE_EXAMPLES=ON
+
+   # With Ninja
+   cmake -Bbuild -GNinja -DFirefly_ENABLE_EXAMPLES=ON
    ```
 
    <center>
